@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Guia prático — React Native com Expo</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:#f1f5f9;color:#233047;font:17px/1.65 system-ui,sans-serif}a{color:#155bc7}header.hero{background:#122542;color:white;padding:58px max(24px,calc((100vw - 1060px)/2)) 48px}.eyebrow{text-transform:uppercase;font-size:12px;letter-spacing:2px;color:#8fd4ff;font-weight:700}h1{font-size:clamp(32px,5vw,52px);line-height:1.1;max-width:850px;margin:16px 0}header p{max-width:740px;color:#ccdaec}.pill{display:inline-block;border:1px solid #58708e;padding:5px 12px;border-radius:30px;font-size:13px;margin:4px}main{max-width:1060px;margin:auto;padding:28px 20px 65px}nav,section{background:white;padding:30px;border-radius:16px;margin-bottom:22px;border:1px solid #dce4ef}nav ul{columns:2;list-style:none;padding:0;margin:0}nav a{text-decoration:none;display:inline-block;padding:6px 0}h2{font-size:26px;line-height:1.3;margin:0 0 18px;color:#122542}h3{font-size:20px;margin-top:28px}p{margin:12px 0}li{margin:7px 0}code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:#eef3f9;padding:2px 5px;border-radius:4px}.code{margin:20px 0;border:1px solid #334860;border-radius:10px;overflow:hidden;background:#101e32;color:#e5eefb}.bar{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#20334e;padding:10px 14px;font-size:13px}.bar div{display:flex;gap:6px}button{background:#fff;color:#163354;border:1px solid #c7d4e6;border-radius:6px;padding:7px 11px;font:600 13px system-ui;cursor:pointer}button:hover{background:#dcecff}button:focus-visible,a:focus-visible{outline:3px solid #1d9fed;outline-offset:3px}pre{margin:0;padding:20px;overflow:auto;font:14px/1.6 ui-monospace,Consolas,monospace;tab-size:4}pre code{background:none;padding:0;color:inherit;font-size:inherit}.note{background:#eaf4ff;border-left:4px solid #237acb;padding:16px 20px;border-radius:4px;margin:20px 0}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}th,td{border-bottom:1px solid #dce4ef;padding:12px;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#edf3fa;color:#193d67}.checks{list-style:none;padding:0}.checks input{width:18px;height:18px;margin-right:10px;accent-color:#2563eb}footer{text-align:center;font-size:14px;color:#62738a}#status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#132641;color:white;border-radius:10px;padding:12px 20px;max-width:90vw}#status:empty{display:none}@media(max-width:650px){nav ul{columns:1}nav,section{padding:20px}main{padding:18px 12px}.bar{flex-wrap:wrap}table{font-size:13px}th,td{padding:8px}pre{font-size:12px}}@media print{body{background:white;font-size:11pt}header.hero{background:white;color:#122542;padding:20px}header p{color:#233047}.eyebrow{color:#233047}.pill{border-color:#aaa}main{padding:0;max-width:none}nav,.bar button,#status,.print{display:none}section{border:0;padding:15px 0;margin:0;border-radius:0}h2,h3{break-after:avoid}.code{background:white;color:#111;border-color:#bbb}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:9pt}.bar{background:#eee;color:#111}.note{background:#f4f4f4}table{font-size:10pt}a{color:#111}}</style></head><body><header class="hero"><div class="eyebrow">Material de apoio · Desenvolvimento de aplicações móveis</div><h1>Seu primeiro app com React Native e Expo</h1><p>Do ambiente de desenvolvimento ao aplicativo funcionando no celular. Instalação, códigos completos, testes e um caminho opcional para gerar APK.</p><span class="pill">Nível iniciante</span><span class="pill">JavaScript · template blank</span><span class="pill">Professor Edilberto Firmino</span></header><main><nav aria-label="Sumário"><h2>Roteiro da prática</h2><ul><li><a href="#conceito">01 · Objetivo da aula e conceitos</a></li><li><a href="#ferramentas">02 · Instale as ferramentas</a></li><li><a href="#compatibilidade">03 · Prepare o Expo Go e confira o SDK</a></li><li><a href="#criar">04 · Crie o projeto JavaScript</a></li><li><a href="#dependencias">05 · Instale as bibliotecas da aula</a></li><li><a href="#arquivos">06 · Organize os arquivos</a></li><li><a href="#app">07 · Código completo de App.js</a></li><li><a href="#styles">08 · Código completo de styles.js</a></li><li><a href="#tarefa">09 · Código completo de components/Tarefa.js</a></li><li><a href="#rodar">10 · Inicie e abra no celular</a></li><li><a href="#emulador">11 · Alternativa: emulador Android</a></li><li><a href="#web">12 · Alternativa: executar no navegador</a></li><li><a href="#atualizar">13 · Edite, atualize e valide</a></li><li><a href="#erros">14 · Diagnóstico e erros comuns</a></li><li><a href="#apk">15 · Opcional: gere um APK independente</a></li><li><a href="#devbuild">16 · Quando usar um build de desenvolvimento</a></li><li><a href="#atividade">17 · Atividade e checklist</a></li><li><a href="#fontes">18 · Referências oficiais</a></li></ul><p class="print"><button id="print" type="button">Imprimir / salvar como PDF</button></p></nav><section id="conceito"><h2>01 · Objetivo da aula e conceitos</h2><p>Construir e executar uma lista de tarefas com React Native e Expo. O aluno poderá adicionar, concluir, excluir e recuperar tarefas salvas no aparelho.</p><table><tr><th>Tecnologia</th><th>Responsabilidade</th></tr><tr><td>React</td><td>Componentes, propriedades e estado da interface.</td></tr><tr><td>React Native</td><td>Componentes de interface que usam recursos das plataformas móveis.</td></tr><tr><td>Expo</td><td>Ferramentas, bibliotecas e serviços para desenvolver e distribuir apps React Native.</td></tr><tr><td>Expo Go</td><td>Aplicativo de aprendizado que abre projetos compatíveis a partir do servidor de desenvolvimento.</td></tr><tr><td>Metro</td><td>Empacota e entrega o código JavaScript durante o desenvolvimento.</td></tr></table><div class="note">Ao contrário da aula de Capacitor, a interface desta aula usa <code>View</code>, <code>Text</code> e <code>TextInput</code>. Não criamos index.html ou style.css para a tela nativa. O código JSX fica em arquivos JavaScript e os estilos usam objetos.</div><p><strong>Caminho principal:</strong> computador + Node.js + editor + celular Android com Expo Go. Android Studio é opcional nesse caminho. Use o emulador se não houver celular disponível.</p></section><section id="ferramentas"><h2>02 · Instale as ferramentas</h2><table><tr><th>Ferramenta</th><th>Uso</th><th>Onde obter</th></tr><tr><td>Node.js LTS e npm</td><td>Obrigatório no computador.</td><td><a href="https://nodejs.org/">nodejs.org</a></td></tr><tr><td>Visual Studio Code</td><td>Editor recomendado.</td><td><a href="https://code.visualstudio.com/">code.visualstudio.com</a></td></tr><tr><td>Expo Go compatível</td><td>Teste no aparelho.</td><td><a href="https://expo.dev/go">expo.dev/go</a></td></tr><tr><td>Android Studio</td><td>Emulador e compilação Android local.</td><td><a href="https://developer.android.com/studio">developer.android.com/studio</a></td></tr></table><ol><li>Instale a versão LTS atual de Node.js, mantendo o npm e a configuração de PATH do instalador.</li><li>Instale o VS Code.</li><li>Feche e reabra o terminal após a instalação do Node.js.</li><li>Execute os comandos de verificação:</li></ol><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="0">Copiar</button></div></div><pre><code>node --version
+npm --version</code></pre></div><p>Ambos devem exibir versões. Não instale a antiga ferramenta global <code>expo-cli</code>: este guia usa <code>npx expo</code> dentro do projeto. Se houver erro de versão do Node, siga o requisito informado pelo SDK instalado.</p><div class="note">O guia pode ser lido offline. A criação do projeto, download das dependências e conexão por túnel exigem internet. Teste o ambiente antes da aula, porque a rede da instituição pode bloquear a comunicação entre dispositivos.</div></section><section id="compatibilidade"><h2>03 · Prepare o Expo Go e confira o SDK</h2><ol><li>No Android, instale Expo Go pela loja ou pelo download oficial indicado em <a href="https://expo.dev/go">expo.dev/go</a>.</li><li>Depois de criar o projeto na próxima etapa, confira a versão da dependência <code>expo</code> em <code>package.json</code>.</li><li>O SDK do projeto deve ser compatível com o Expo Go instalado. Se aparecer “Project is incompatible”, obtenha a versão correspondente no site oficial.</li></ol><div class="note"><strong>Importante para a turma:</strong> a versão mais recente do projeto pode chegar antes da atualização do aplicativo na loja. Não suponha que instalar “o mais recente” nos dois lugares garante compatibilidade. Padronize o SDK e o Expo Go utilizados pelos alunos.</div><p><strong>iPhone:</strong> confira a orientação atual no site do Expo. A distribuição pela App Store pode não acompanhar SDKs recentes; nesses casos, use um SDK compatível ou um build de desenvolvimento. Algumas versões exigem login no Expo CLI e no Expo Go com a mesma conta. A compilação local e o simulador de iOS exigem macOS e Xcode.</p></section><section id="criar"><h2>04 · Crie o projeto JavaScript</h2><p>Abra o terminal em uma pasta de trabalho. Não crie o projeto dentro da pasta www da aula anterior. Execute:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="1">Copiar</button></div></div><pre><code>npx create-expo-app@latest minhas-tarefas-expo --template blank
+cd minhas-tarefas-expo</code></pre></div><p>Se o npm pedir autorização para baixar create-expo-app, responda <code>y</code>. Aguarde a instalação concluir antes do próximo comando.</p><div class="note">Usamos <code>--template blank</code> para ter uma tela com <code>App.js</code> em JavaScript, sem navegação. O template padrão pode usar TypeScript e Expo Router com outra estrutura. Para seguir estes arquivos exatamente, crie com o comando acima.</div><p>O gerador já cria <code>package.json</code> e instala React, React Native e Expo. Você não precisa executar <code>npm init -y</code> nem instalar essas três bibliotecas separadamente.</p><p>Abra a pasta <code>minhas-tarefas-expo</code> no VS Code com Arquivo → Abrir Pasta. Se o comando do editor estiver disponível, pode usar:</p><div class="code"><div class="bar"><strong>Terminal — opcional</strong><div><button type="button" data-copy="2">Copiar</button></div></div><pre><code>code .</code></pre></div><p>Se a instalação de dependências foi interrompida, entre na pasta criada e execute <code>npm install</code> antes de continuar.</p></section><section id="dependencias"><h2>05 · Instale as bibliotecas da aula</h2><p>No terminal, dentro de <code>minhas-tarefas-expo</code>, execute:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="3">Copiar</button></div></div><pre><code>npx expo install react-native-safe-area-context @react-native-async-storage/async-storage expo-status-bar</code></pre></div><table><tr><th>Biblioteca</th><th>Uso no exemplo</th></tr><tr><td>react-native-safe-area-context</td><td>Protege a interface das áreas ocupadas por recortes e barras do sistema.</td></tr><tr><td>@react-native-async-storage/async-storage</td><td>Salva a lista localmente e permite recuperar após reabrir.</td></tr><tr><td>expo-status-bar</td><td>Ajusta o estilo da barra de status.</td></tr></table><p><code>npx expo install</code> seleciona versões compatíveis com o SDK do projeto. As bibliotecas usadas nesta aula são compatíveis com Expo Go nas versões correspondentes.</p></section><section id="arquivos"><h2>06 · Organize os arquivos</h2><p>Substitua o conteúdo do <code>App.js</code> criado pelo template. Crie <code>styles.js</code> na raiz e uma pasta <code>components</code> contendo <code>Tarefa.js</code>.</p><table><tr><th>Caminho relativo à raiz</th><th>Função</th></tr><tr><td><code>App.js</code></td><td>Tela principal, estado e armazenamento.</td></tr><tr><td><code>styles.js</code></td><td>Estilos compartilhados.</td></tr><tr><td><code>components/Tarefa.js</code></td><td>Componente reutilizável para cada tarefa.</td></tr><tr><td><code>app.json</code></td><td>Nome e configurações do aplicativo, gerados pelo Expo.</td></tr><tr><td><code>index.js</code></td><td>Entrada gerada pelo template; mantenha-a.</td></tr><tr><td><code>package.json</code></td><td>Dependências e comandos do projeto.</td></tr></table><div class="note">Respeite maiúsculas e minúsculas: o import <code>./components/Tarefa</code> deve corresponder a <code>components/Tarefa.js</code>. Não substitua o package.json por um exemplo genérico; mantenha as versões geradas.</div></section><section id="app"><h2>07 · Código completo de App.js</h2><p><code>useState</code> mantém os dados da interface e <code>useEffect</code> carrega e salva a lista. O botão fica desativado enquanto os dados iniciais são lidos, evitando sobrescrevê-los.</p><div class="code"><div class="bar"><strong>App.js</strong><div><button type="button" data-copy="4">Copiar</button><button type="button" data-download="4" data-name="App.js">Baixar arquivo</button></div></div><pre><code>import { useEffect, useRef, useState } from &#x27;react&#x27;;
+import {
+  FlatList, Keyboard, KeyboardAvoidingView,
+  Platform, Pressable, Text, TextInput, View,
+} from &#x27;react-native&#x27;;
+import { StatusBar } from &#x27;expo-status-bar&#x27;;
+import { SafeAreaProvider, SafeAreaView } from &#x27;react-native-safe-area-context&#x27;;
+import AsyncStorage from &#x27;@react-native-async-storage/async-storage&#x27;;
+import Tarefa from &#x27;./components/Tarefa&#x27;;
+import styles from &#x27;./styles&#x27;;
+
+const CHAVE = &#x27;@aula-mobile:tarefas&#x27;;
+
+export default function App() {
+  const [texto, setTexto] = useState(&#x27;&#x27;);
+  const [tarefas, setTarefas] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [podeSalvar, setPodeSalvar] = useState(false);
+  const [erro, setErro] = useState(&#x27;&#x27;);
+  const proximoId = useRef(0);
+  const filaDeSalvamento = useRef(Promise.resolve());
+
+  // Carrega os dados uma vez, antes de permitir alterações.
+  useEffect(() =&gt; {
+    let ativo = true;
+    async function carregar() {
+      try {
+        const salvo = await AsyncStorage.getItem(CHAVE);
+        const dados = salvo ? JSON.parse(salvo) : [];
+        if (!Array.isArray(dados)) throw new Error(&#x27;Lista inválida&#x27;);
+        const validas = dados.filter(t =&gt;
+          t &amp;&amp; typeof t.id === &#x27;string&#x27; &amp;&amp;
+          typeof t.texto === &#x27;string&#x27; &amp;&amp; typeof t.concluida === &#x27;boolean&#x27;
+        );
+        if (ativo) {
+          setTarefas(validas);
+          setPodeSalvar(true);
+        }
+      } catch {
+        if (ativo) setErro(&#x27;Não foi possível ler os dados. A lista ficará temporária nesta sessão.&#x27;);
+      } finally {
+        if (ativo) setCarregando(false);
+      }
+    }
+    carregar();
+    return () =&gt; { ativo = false; };
+  }, []);
+
+  // Espera o carregamento; salva alterações na ordem em que ocorreram.
+  useEffect(() =&gt; {
+    if (carregando || !podeSalvar) return;
+    const dados = JSON.stringify(tarefas);
+    filaDeSalvamento.current = filaDeSalvamento.current
+      .then(() =&gt; AsyncStorage.setItem(CHAVE, dados))
+      .catch(() =&gt; setErro(&#x27;Não foi possível salvar a última alteração.&#x27;));
+  }, [tarefas, carregando, podeSalvar]);
+
+  function adicionar() {
+    const valor = texto.trim();
+    if (!valor || carregando) return;
+    const id = `${Date.now()}-${proximoId.current++}`;
+    setTarefas(lista =&gt; [...lista, { id, texto: valor, concluida: false }]);
+    setTexto(&#x27;&#x27;);
+    Keyboard.dismiss();
+  }
+
+  function alternar(id) {
+    setTarefas(lista =&gt; lista.map(t =&gt;
+      t.id === id ? { ...t, concluida: !t.concluida } : t
+    ));
+  }
+
+  function excluir(id) {
+    setTarefas(lista =&gt; lista.filter(t =&gt; t.id !== id));
+  }
+
+  const concluidas = tarefas.filter(t =&gt; t.concluida).length;
+
+  return (
+    &lt;SafeAreaProvider&gt;
+      &lt;SafeAreaView style={styles.safe}&gt;
+        &lt;StatusBar style=&quot;dark&quot; /&gt;
+        &lt;KeyboardAvoidingView
+          style={styles.container}
+          behavior={Platform.OS === &#x27;ios&#x27; ? &#x27;padding&#x27; : undefined}
+        &gt;
+          &lt;Text style={styles.titulo}&gt;Minhas Tarefas&lt;/Text&gt;
+          &lt;Text style={styles.subtitulo}&gt;Minha primeira aplicação com React Native e Expo.&lt;/Text&gt;
+          &lt;Text style={styles.label}&gt;Nova tarefa&lt;/Text&gt;
+          &lt;TextInput
+            style={styles.input}
+            placeholder=&quot;Ex.: estudar programação&quot;
+            placeholderTextColor=&quot;#64748b&quot;
+            accessibilityLabel=&quot;Nova tarefa&quot;
+            value={texto}
+            onChangeText={setTexto}
+            onSubmitEditing={adicionar}
+            returnKeyType=&quot;done&quot;
+            maxLength={150}
+            editable={!carregando}
+          /&gt;
+          &lt;Pressable
+            onPress={adicionar}
+            disabled={carregando || !texto.trim()}
+            accessibilityRole=&quot;button&quot;
+            style={({ pressed }) =&gt; [
+              styles.botao,
+              (carregando || !texto.trim() || pressed) &amp;&amp; styles.botaoOpaco,
+            ]}
+          &gt;
+            &lt;Text style={styles.textoBotao}&gt;Adicionar tarefa&lt;/Text&gt;
+          &lt;/Pressable&gt;
+          &lt;Text style={styles.resumo}&gt;
+            {tarefas.length} tarefa(s) • {concluidas} concluída(s)
+          &lt;/Text&gt;
+          {erro ? &lt;Text style={styles.erro} accessibilityRole=&quot;alert&quot;&gt;{erro}&lt;/Text&gt; : null}
+          &lt;FlatList
+            style={styles.lista}
+            data={tarefas}
+            keyExtractor={item =&gt; item.id}
+            keyboardShouldPersistTaps=&quot;handled&quot;
+            contentContainerStyle={styles.conteudoLista}
+            ListEmptyComponent={
+              &lt;Text style={styles.vazio}&gt;
+                {carregando ? &#x27;Carregando...&#x27; : &#x27;Nenhuma tarefa cadastrada.&#x27;}
+              &lt;/Text&gt;
+            }
+            renderItem={({ item }) =&gt; (
+              &lt;Tarefa tarefa={item} onAlternar={alternar} onExcluir={excluir} /&gt;
+            )}
+          /&gt;
+        &lt;/KeyboardAvoidingView&gt;
+      &lt;/SafeAreaView&gt;
+    &lt;/SafeAreaProvider&gt;
+  );
+}</code></pre></div></section><section id="styles"><h2>08 · Código completo de styles.js</h2><p>Em React Native, usamos <code>StyleSheet.create</code>. Propriedades são escritas em camelCase, como <code>backgroundColor</code>, e dimensões numéricas não levam “px”.</p><div class="code"><div class="bar"><strong>styles.js</strong><div><button type="button" data-copy="5">Copiar</button><button type="button" data-download="5" data-name="styles.js">Baixar arquivo</button></div></div><pre><code>import { StyleSheet } from &#x27;react-native&#x27;;
+
+export default StyleSheet.create({
+  safe: { flex: 1, backgroundColor: &#x27;#eff6ff&#x27; },
+  container: {
+    flex: 1, width: &#x27;100%&#x27;, maxWidth: 600,
+    alignSelf: &#x27;center&#x27;, padding: 24,
+  },
+  titulo: { fontSize: 30, fontWeight: &#x27;700&#x27;, color: &#x27;#1e293b&#x27;, marginBottom: 8 },
+  subtitulo: { fontSize: 16, color: &#x27;#64748b&#x27;, marginBottom: 24 },
+  label: { fontSize: 16, fontWeight: &#x27;600&#x27;, color: &#x27;#1e293b&#x27;, marginBottom: 8 },
+  input: {
+    borderWidth: 1, borderColor: &#x27;#cbd5e1&#x27;, borderRadius: 12,
+    padding: 14, fontSize: 16, color: &#x27;#1e293b&#x27;, backgroundColor: &#x27;#fff&#x27;,
+  },
+  botao: {
+    marginTop: 12, backgroundColor: &#x27;#2563eb&#x27;, borderRadius: 12,
+    minHeight: 48, padding: 14, alignItems: &#x27;center&#x27;, justifyContent: &#x27;center&#x27;,
+  },
+  botaoOpaco: { opacity: 0.5 },
+  textoBotao: { color: &#x27;#fff&#x27;, fontSize: 16, fontWeight: &#x27;700&#x27; },
+  resumo: { color: &#x27;#64748b&#x27;, marginTop: 24, marginBottom: 12 },
+  lista: { flex: 1 },
+  conteudoLista: { paddingBottom: 24 },
+  vazio: { color: &#x27;#64748b&#x27;, textAlign: &#x27;center&#x27;, paddingVertical: 24 },
+  erro: { color: &#x27;#b91c1c&#x27;, marginBottom: 12 },
+  tarefa: {
+    flexDirection: &#x27;row&#x27;, alignItems: &#x27;center&#x27;, backgroundColor: &#x27;#fff&#x27;,
+    padding: 12, borderRadius: 12, marginBottom: 10,
+    borderWidth: 1, borderColor: &#x27;#dbe4ef&#x27;,
+  },
+  tarefaPrincipal: { flex: 1, flexDirection: &#x27;row&#x27;, alignItems: &#x27;center&#x27;, minHeight: 44 },
+  marcador: { fontSize: 23, color: &#x27;#2563eb&#x27;, marginRight: 12 },
+  textoTarefa: { flex: 1, fontSize: 16, color: &#x27;#1e293b&#x27; },
+  concluida: { textDecorationLine: &#x27;line-through&#x27;, color: &#x27;#64748b&#x27; },
+  excluir: {
+    marginLeft: 10, padding: 10, minHeight: 44,
+    justifyContent: &#x27;center&#x27;, borderRadius: 8, backgroundColor: &#x27;#fee2e2&#x27;,
+  },
+  textoExcluir: { color: &#x27;#b91c1c&#x27;, fontWeight: &#x27;600&#x27; },
+});</code></pre></div></section><section id="tarefa"><h2>09 · Código completo de components/Tarefa.js</h2><p>O componente recebe dados e funções por propriedades (props). Ao tocar na tarefa, solicita a alteração de estado; ao tocar em Excluir, solicita a remoção.</p><div class="code"><div class="bar"><strong>components/Tarefa.js</strong><div><button type="button" data-copy="6">Copiar</button><button type="button" data-download="6" data-name="Tarefa.js">Baixar arquivo</button></div></div><pre><code>import { Pressable, Text, View } from &#x27;react-native&#x27;;
+import styles from &#x27;../styles&#x27;;
+
+export default function Tarefa({ tarefa, onAlternar, onExcluir }) {
+  return (
+    &lt;View style={styles.tarefa}&gt;
+      &lt;Pressable
+        style={styles.tarefaPrincipal}
+        onPress={() =&gt; onAlternar(tarefa.id)}
+        accessibilityRole=&quot;checkbox&quot;
+        accessibilityState={{ checked: tarefa.concluida }}
+        accessibilityLabel={tarefa.texto}
+      &gt;
+        &lt;Text style={styles.marcador} accessibilityElementsHidden&gt;
+          {tarefa.concluida ? &#x27;☑&#x27; : &#x27;☐&#x27;}
+        &lt;/Text&gt;
+        &lt;Text style={[styles.textoTarefa, tarefa.concluida &amp;&amp; styles.concluida]}&gt;
+          {tarefa.texto}
+        &lt;/Text&gt;
+      &lt;/Pressable&gt;
+      &lt;Pressable
+        style={styles.excluir}
+        onPress={() =&gt; onExcluir(tarefa.id)}
+        accessibilityRole=&quot;button&quot;
+        accessibilityLabel={`Excluir tarefa: ${tarefa.texto}`}
+      &gt;
+        &lt;Text style={styles.textoExcluir}&gt;Excluir&lt;/Text&gt;
+      &lt;/Pressable&gt;
+    &lt;/View&gt;
+  );
+}</code></pre></div><div class="note">O botão “Baixar arquivo” entrega <code>Tarefa.js</code>. Coloque esse arquivo na pasta <code>components</code> do projeto. Os outros dois arquivos ficam na raiz.</div></section><section id="rodar"><h2>10 · Inicie e abra no celular</h2><p>Na raiz do projeto, execute:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="7">Copiar</button></div></div><pre><code>npx expo start</code></pre></div><ol><li>Aguarde o Metro iniciar e exibir o QR code.</li><li>Conecte computador e celular à mesma rede Wi-Fi.</li><li>No Android, abra Expo Go e use a opção de escanear QR code disponível na sua versão.</li><li>No iPhone compatível, use a câmera para abrir o QR code e siga eventuais solicitações de login.</li><li>Mantenha o terminal e o servidor de desenvolvimento abertos.</li></ol><p>Se o servidor selecionar um cliente de desenvolvimento por engano, use explicitamente:</p><div class="code"><div class="bar"><strong>Terminal — modo Expo Go</strong><div><button type="button" data-copy="8">Copiar</button></div></div><pre><code>npx expo start --go</code></pre></div><h3>Se a rede da escola não permitir conexão</h3><p>Interrompa com Ctrl+C e tente o túnel:</p><div class="code"><div class="bar"><strong>Terminal — alternativa de conexão</strong><div><button type="button" data-copy="9">Copiar</button></div></div><pre><code>npx expo start --tunnel</code></pre></div><p>Aceite a instalação do suporte ao túnel se o CLI solicitar. O túnel exige internet nos dois dispositivos e pode ser mais lento. Libere o Node.js no firewall para a rede privada se houver uma solicitação do sistema; não desative o firewall inteiro.</p><div class="note">Abrir o projeto no Expo Go não gera um APK independente. Durante esta etapa, o celular executa seu projeto através do ambiente Expo Go e do servidor de desenvolvimento.</div></section><section id="emulador"><h2>11 · Alternativa: emulador Android</h2><ol><li>Baixe e instale <a href="https://developer.android.com/studio">Android Studio</a>.</li><li>Na primeira abertura, conclua o assistente e aceite as licenças do Android SDK.</li><li>No <strong>SDK Manager</strong>, instale Android SDK Platform-Tools, Android Emulator e uma plataforma Android adequada. Os nomes de menus podem variar.</li><li>No <strong>Device Manager</strong>, escolha Create Device, selecione um modelo e baixe uma imagem de sistema compatível com o Expo Go.</li><li>Inicie o dispositivo virtual. Confira suporte à virtualização no computador.</li><li>Se o terminal não encontrar o SDK ou adb, configure as variáveis indicadas abaixo.</li><li>Execute <code>npx expo start</code> e pressione <strong>a</strong> no terminal para abrir no Android.</li></ol><h3>Configuração no Windows</h3><p>Copie o caminho real mostrado em <strong>SDK Manager → Android SDK Location</strong>. Nas variáveis de ambiente do usuário:</p><table><tr><th>Variável</th><th>Valor</th></tr><tr><td><code>ANDROID_HOME</code></td><td>Caminho do SDK. Exemplo comum: <code>C:\Users\SEU_USUARIO\AppData\Local\Android\Sdk</code>.</td></tr><tr><td><code>Path</code></td><td>Adicione <code>%ANDROID_HOME%\platform-tools</code> e <code>%ANDROID_HOME%\emulator</code> como entradas separadas.</td></tr></table><p>Feche e reabra o terminal e o VS Code. Confira:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="10">Copiar</button></div></div><pre><code>adb --version
+adb devices</code></pre></div><p>O dispositivo virtual iniciado deve aparecer na lista. Em macOS/Linux, configure ANDROID_HOME com o caminho real do SDK e adicione platform-tools e emulator ao PATH no arquivo de configuração do seu shell. Veja o <a href="https://docs.expo.dev/workflow/android-studio-emulator/">guia oficial do emulador</a> para o seu sistema.</p></section><section id="web"><h2>12 · Alternativa: executar no navegador</h2><p>Para conferir a interface mesmo sem celular ou emulador, instale o suporte web na raiz do projeto:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="11">Copiar</button></div></div><pre><code>npx expo install react-dom react-native-web @expo/metro-runtime
+npx expo start --web</code></pre></div><p>Também pode iniciar com <code>npx expo start</code> e pressionar <strong>w</strong>. O navegador ajuda a testar o exemplo, mas o teste final mobile deve ocorrer no aparelho ou emulador.</p><div class="note">O armazenamento no navegador é separado do armazenamento no celular. Não espere ver automaticamente as mesmas tarefas em todos os dispositivos.</div></section><section id="atualizar"><h2>13 · Edite, atualize e valide</h2><ol><li>Com o projeto aberto no celular, altere o título em App.js.</li><li>Salve o arquivo. O <strong>Fast Refresh</strong> atualiza a tela durante o desenvolvimento.</li><li>Se a atualização não aparecer, pressione <strong>r</strong> no terminal do Expo para recarregar.</li><li>Adicione três tarefas, conclua uma e exclua outra.</li><li>Espere um instante para o salvamento terminar, recarregue e confira a lista restante.</li><li>Confira teclado, rolagem, textos longos e áreas da barra do sistema.</li></ol><p>Para parar o servidor, pressione <strong>Ctrl+C</strong>. Em outro dia, abra a pasta do projeto e execute novamente <code>npx expo start</code>. Para um projeto baixado sem node_modules, execute <code>npm install</code> primeiro.</p><div class="note">Nesta aula não existe <code>npx cap sync</code>. O Expo entrega as mudanças de JavaScript pelo servidor. Bibliotecas nativas não presentes no Expo Go exigem um build de desenvolvimento com os módulos correspondentes.</div><p>As tarefas são dados locais, sem sincronização com servidor. AsyncStorage não é criptografado e não deve armazenar senhas. Limpar os dados do aplicativo pode remover a lista.</p></section><section id="erros"><h2>14 · Diagnóstico e erros comuns</h2><table><tr><th>Problema</th><th>Solução</th></tr><tr><td>npm ou npx não reconhecido</td><td>Confira Node.js, PATH e reabra o terminal.</td></tr><tr><td>npm.ps1 bloqueado no PowerShell</td><td>Use o perfil Prompt de Comando (cmd) no VS Code, ou npm.cmd e npx.cmd.</td></tr><tr><td>Não encontro App.js</td><td>Confira se criou com --template blank. O padrão com Router usa outra estrutura.</td></tr><tr><td>Unable to resolve module</td><td>Confira os imports e instale as dependências da etapa 05, na pasta correta.</td></tr><tr><td>QR code não conecta</td><td>Confira mesma rede, servidor ativo, firewall e compatibilidade de SDK. Redes de convidados podem isolar os aparelhos. Tente --tunnel.</td></tr><tr><td>Project is incompatible with this version of Expo Go</td><td>Confira a versão de expo no package.json e instale um Expo Go correspondente em expo.dev/go. No iPhone, siga as opções oficiais disponíveis para o SDK.</td></tr><tr><td>Tela antiga ou erro de cache</td><td>Pare o servidor e reinicie com npx expo start --clear.</td></tr><tr><td>Porta ocupada</td><td>Feche outro servidor ou aceite a porta alternativa sugerida pelo CLI.</td></tr><tr><td>Emulador não encontrado</td><td>Inicie-o no Device Manager; confira ANDROID_HOME, PATH e adb devices.</td></tr><tr><td>Emulador muito lento</td><td>Confira virtualização e recursos do computador; prefira um celular físico quando possível.</td></tr><tr><td>Dependências incompatíveis</td><td>Use os comandos de diagnóstico abaixo. Evite instalar React Native ou React em versões aleatórias.</td></tr><tr><td>Dados não aparecem em outro aparelho</td><td>AsyncStorage é local. Sincronização entre aparelhos exige backend.</td></tr></table><div class="code"><div class="bar"><strong>Diagnóstico — raiz do projeto</strong><div><button type="button" data-copy="12">Copiar</button></div></div><pre><code>npx expo-doctor@latest
+npx expo install --check</code></pre></div><p>Se o diagnóstico apontar versões de dependências desalinhadas, salve seu trabalho e execute:</p><div class="code"><div class="bar"><strong>Correção de compatibilidade</strong><div><button type="button" data-copy="13">Copiar</button></div></div><pre><code>npx expo install --fix
+npx expo start --clear</code></pre></div><p>Isso alinha dependências ao SDK instalado; não torna automaticamente o Expo Go compatível com outro SDK. Não apague arquivos ou reinstale tudo antes de ler a mensagem do erro.</p></section><section id="apk"><h2>15 · Opcional: gere um APK independente</h2><p>Faça esta etapa depois que o projeto funcionar. Um APK de preview pode ser instalado no Android e executado sem o Expo Go ou Metro. O exemplo salva dados localmente e funciona offline depois de instalado.</p><h3>Prepare a conta e o projeto</h3><ol><li>Crie uma conta em <a href="https://expo.dev/">expo.dev</a>.</li><li>Na raiz do projeto, execute os comandos abaixo.</li><li>Faça login e aceite vincular/criar o projeto Expo quando solicitado.</li></ol><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="14">Copiar</button></div></div><pre><code>npx eas-cli@latest login
+npx eas-cli@latest build:configure</code></pre></div><p>Selecione Android quando solicitado. A ferramenta gera <code>eas.json</code> e pode acrescentar configurações ao projeto.</p><h3>Configure o identificador Android</h3><p>No <code>app.json</code>, dentro de <code>expo</code>, defina <code>android.package</code>. Mescle esse trecho com o arquivo existente, preservando as demais propriedades e os metadados criados pelo EAS:</p><div class="code"><div class="bar"><strong>Trecho de app.json — mesclar, não substituir</strong><div><button type="button" data-copy="15">Copiar</button></div></div><pre><code>{
+  &quot;expo&quot;: {
+    &quot;name&quot;: &quot;Minhas Tarefas&quot;,
+    &quot;slug&quot;: &quot;minhas-tarefas-expo&quot;,
+    &quot;android&quot;: {
+      &quot;package&quot;: &quot;br.com.exemplo.minhastarefas&quot;
+    }
+  }
+}</code></pre></div><p>Use um identificador próprio para seu projeto. Evite acentos, espaços e hífens no nome do pacote Android.</p><h3>Adicione um perfil de preview</h3><p>No <code>eas.json</code>, adicione ou ajuste <code>build.preview</code>. Preserve outros perfis que já existam. Para um arquivo contendo apenas esse perfil, o conteúdo é:</p><div class="code"><div class="bar"><strong>eas.json — perfil de APK</strong><div><button type="button" data-copy="16">Copiar</button></div></div><pre><code>{
+  &quot;build&quot;: {
+    &quot;preview&quot;: {
+      &quot;distribution&quot;: &quot;internal&quot;,
+      &quot;android&quot;: {
+        &quot;buildType&quot;: &quot;apk&quot;
+      }
+    }
+  }
+}</code></pre></div><p>Inicie a compilação em nuvem:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="17">Copiar</button></div></div><pre><code>npx eas-cli@latest build --platform android --profile preview</code></pre></div><ol><li>Se solicitado, permita que o EAS gere um keystore para este projeto de aula; ele será usado para assinar o aplicativo.</li><li>Aguarde a fila e a compilação. O tempo e a disponibilidade dependem do plano e dos limites do serviço; consulte o painel antes da aula.</li><li>Abra o link do build concluído no aparelho Android e baixe o APK.</li><li>Permita a instalação pela origem utilizada quando o Android solicitar e instale o app.</li><li>Abra o app, adicione uma tarefa e teste novamente sem o servidor Metro.</li></ol><div class="note">Esse build em nuvem não exige Android Studio no seu computador. APK de preview é para testes e distribuição direta; publicação na Google Play normalmente usa AAB e envolve conta de desenvolvedor e requisitos da loja.</div><p>Depois de alterar o código, gere um novo APK para atualizar esse build de preview. O Fast Refresh funciona no desenvolvimento, não em um APK de preview já instalado.</p></section><section id="devbuild"><h2>16 · Quando usar um build de desenvolvimento</h2><p>Expo Go contém um conjunto pré-definido de módulos nativos. Quando seu projeto precisa de código nativo ou de bibliotecas fora desse conjunto, crie um cliente de desenvolvimento próprio. Para esta aula, Expo Go é suficiente.</p><p>Após configurar a conta e o projeto EAS na etapa anterior:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="18">Copiar</button></div></div><pre><code>npx expo install expo-dev-client</code></pre></div><p>Adicione este perfil em <code>build</code> no eas.json, preservando preview:</p><div class="code"><div class="bar"><strong>Trecho de eas.json — build.development</strong><div><button type="button" data-copy="19">Copiar</button></div></div><pre><code>{
+  &quot;developmentClient&quot;: true,
+  &quot;distribution&quot;: &quot;internal&quot;
+}</code></pre></div><p>O trecho acima é o valor de <code>build.development</code>, e não um arquivo completo. Em seguida:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="20">Copiar</button></div></div><pre><code>npx eas-cli@latest build --platform android --profile development</code></pre></div><p>Instale o cliente gerado no Android e, para desenvolver com ele, execute:</p><div class="code"><div class="bar"><strong>Terminal</strong><div><button type="button" data-copy="21">Copiar</button></div></div><pre><code>npx expo start --dev-client</code></pre></div><p>Abra o QR code com o cliente de desenvolvimento instalado. Esse cliente ainda utiliza o servidor Metro durante o desenvolvimento. Se adicionar ou mudar módulos nativos, gere e instale um novo build.</p></section><section id="atividade"><h2>17 · Atividade e checklist</h2><h3>Proposta de atividade</h3><ol><li>Personalize título e cores.</li><li>Cadastre três tarefas, conclua duas e exclua uma.</li><li>Reabra e demonstre a recuperação da lista.</li><li>Explique props, estado, useEffect e o motivo de usar expo install.</li><li>Compare uma tela React Native com a página HTML da aula de Capacitor.</li></ol><h3>Antes de entregar</h3><ul class="checks"><li><label><input type="checkbox"> Node.js e npm funcionam.</label></li><li><label><input type="checkbox"> O projeto foi criado com o template blank.</label></li><li><label><input type="checkbox"> As bibliotecas da aula foram instaladas.</label></li><li><label><input type="checkbox"> Os três arquivos estão nos caminhos corretos.</label></li><li><label><input type="checkbox"> A tela abre no Expo Go ou emulador compatível.</label></li><li><label><input type="checkbox"> Adicionar, concluir e excluir funcionam.</label></li><li><label><input type="checkbox"> A lista foi recuperada após recarregar.</label></li><li><label><input type="checkbox"> Uma edição aparece depois de salvar.</label></li></ul><p><strong>Roteiro rápido para aulas seguintes:</strong> abrir a pasta → npm install, se necessário → npx expo start → abrir no aparelho → editar e salvar.</p></section><section id="fontes"><h2>18 · Referências oficiais</h2><p>Os requisitos e a distribuição do Expo Go mudam com o SDK. Confira a documentação correspondente à versão do seu projeto.</p><ul><li><a href="https://docs.expo.dev/get-started/create-a-project/">Criar projeto Expo</a></li><li><a href="https://docs.expo.dev/more/create-expo/">Templates de create-expo-app</a></li><li><a href="https://docs.expo.dev/get-started/start-developing/">Servidor, QR code e túnel</a></li><li><a href="https://expo.dev/go">Expo Go e versões disponíveis</a></li><li><a href="https://docs.expo.dev/troubleshooting/expo-go-version-mismatch/">Resolver incompatibilidade de SDK</a></li><li><a href="https://docs.expo.dev/workflow/android-studio-emulator/">Emulador Android</a></li><li><a href="https://docs.expo.dev/workflow/web/">Executar no navegador</a></li><li><a href="https://docs.expo.dev/develop/user-interface/safe-areas/">Áreas seguras</a></li><li><a href="https://docs.expo.dev/versions/latest/sdk/async-storage/">AsyncStorage</a></li><li><a href="https://docs.expo.dev/build-reference/apk/">Gerar APK com EAS</a></li><li><a href="https://docs.expo.dev/develop/development-builds/introduction/">Builds de desenvolvimento</a></li><li><a href="https://reactnative.dev/docs/getting-started">React Native</a></li></ul></section><footer>Guia de apoio • React Native e Expo<br>Leitura e códigos disponíveis offline. Instalação, links e serviços em nuvem exigem internet.</footer></main><div id="status" role="status" aria-live="polite"></div><script>const examples = ["node --version\nnpm --version", "npx create-expo-app@latest minhas-tarefas-expo --template blank\ncd minhas-tarefas-expo", "code .", "npx expo install react-native-safe-area-context @react-native-async-storage/async-storage expo-status-bar", "import { useEffect, useRef, useState } from 'react';\nimport {\n  FlatList, Keyboard, KeyboardAvoidingView,\n  Platform, Pressable, Text, TextInput, View,\n} from 'react-native';\nimport { StatusBar } from 'expo-status-bar';\nimport { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';\nimport AsyncStorage from '@react-native-async-storage/async-storage';\nimport Tarefa from './components/Tarefa';\nimport styles from './styles';\n\nconst CHAVE = '@aula-mobile:tarefas';\n\nexport default function App() {\n  const [texto, setTexto] = useState('');\n  const [tarefas, setTarefas] = useState([]);\n  const [carregando, setCarregando] = useState(true);\n  const [podeSalvar, setPodeSalvar] = useState(false);\n  const [erro, setErro] = useState('');\n  const proximoId = useRef(0);\n  const filaDeSalvamento = useRef(Promise.resolve());\n\n  // Carrega os dados uma vez, antes de permitir alterações.\n  useEffect(() => {\n    let ativo = true;\n    async function carregar() {\n      try {\n        const salvo = await AsyncStorage.getItem(CHAVE);\n        const dados = salvo ? JSON.parse(salvo) : [];\n        if (!Array.isArray(dados)) throw new Error('Lista inválida');\n        const validas = dados.filter(t =>\n          t && typeof t.id === 'string' &&\n          typeof t.texto === 'string' && typeof t.concluida === 'boolean'\n        );\n        if (ativo) {\n          setTarefas(validas);\n          setPodeSalvar(true);\n        }\n      } catch {\n        if (ativo) setErro('Não foi possível ler os dados. A lista ficará temporária nesta sessão.');\n      } finally {\n        if (ativo) setCarregando(false);\n      }\n    }\n    carregar();\n    return () => { ativo = false; };\n  }, []);\n\n  // Espera o carregamento; salva alterações na ordem em que ocorreram.\n  useEffect(() => {\n    if (carregando || !podeSalvar) return;\n    const dados = JSON.stringify(tarefas);\n    filaDeSalvamento.current = filaDeSalvamento.current\n      .then(() => AsyncStorage.setItem(CHAVE, dados))\n      .catch(() => setErro('Não foi possível salvar a última alteração.'));\n  }, [tarefas, carregando, podeSalvar]);\n\n  function adicionar() {\n    const valor = texto.trim();\n    if (!valor || carregando) return;\n    const id = `${Date.now()}-${proximoId.current++}`;\n    setTarefas(lista => [...lista, { id, texto: valor, concluida: false }]);\n    setTexto('');\n    Keyboard.dismiss();\n  }\n\n  function alternar(id) {\n    setTarefas(lista => lista.map(t =>\n      t.id === id ? { ...t, concluida: !t.concluida } : t\n    ));\n  }\n\n  function excluir(id) {\n    setTarefas(lista => lista.filter(t => t.id !== id));\n  }\n\n  const concluidas = tarefas.filter(t => t.concluida).length;\n\n  return (\n    <SafeAreaProvider>\n      <SafeAreaView style={styles.safe}>\n        <StatusBar style=\"dark\" />\n        <KeyboardAvoidingView\n          style={styles.container}\n          behavior={Platform.OS === 'ios' ? 'padding' : undefined}\n        >\n          <Text style={styles.titulo}>Minhas Tarefas<\/Text>\n          <Text style={styles.subtitulo}>Minha primeira aplicação com React Native e Expo.<\/Text>\n          <Text style={styles.label}>Nova tarefa<\/Text>\n          <TextInput\n            style={styles.input}\n            placeholder=\"Ex.: estudar programação\"\n            placeholderTextColor=\"#64748b\"\n            accessibilityLabel=\"Nova tarefa\"\n            value={texto}\n            onChangeText={setTexto}\n            onSubmitEditing={adicionar}\n            returnKeyType=\"done\"\n            maxLength={150}\n            editable={!carregando}\n          />\n          <Pressable\n            onPress={adicionar}\n            disabled={carregando || !texto.trim()}\n            accessibilityRole=\"button\"\n            style={({ pressed }) => [\n              styles.botao,\n              (carregando || !texto.trim() || pressed) && styles.botaoOpaco,\n            ]}\n          >\n            <Text style={styles.textoBotao}>Adicionar tarefa<\/Text>\n          <\/Pressable>\n          <Text style={styles.resumo}>\n            {tarefas.length} tarefa(s) • {concluidas} concluída(s)\n          <\/Text>\n          {erro ? <Text style={styles.erro} accessibilityRole=\"alert\">{erro}<\/Text> : null}\n          <FlatList\n            style={styles.lista}\n            data={tarefas}\n            keyExtractor={item => item.id}\n            keyboardShouldPersistTaps=\"handled\"\n            contentContainerStyle={styles.conteudoLista}\n            ListEmptyComponent={\n              <Text style={styles.vazio}>\n                {carregando ? 'Carregando...' : 'Nenhuma tarefa cadastrada.'}\n              <\/Text>\n            }\n            renderItem={({ item }) => (\n              <Tarefa tarefa={item} onAlternar={alternar} onExcluir={excluir} />\n            )}\n          />\n        <\/KeyboardAvoidingView>\n      <\/SafeAreaView>\n    <\/SafeAreaProvider>\n  );\n}", "import { StyleSheet } from 'react-native';\n\nexport default StyleSheet.create({\n  safe: { flex: 1, backgroundColor: '#eff6ff' },\n  container: {\n    flex: 1, width: '100%', maxWidth: 600,\n    alignSelf: 'center', padding: 24,\n  },\n  titulo: { fontSize: 30, fontWeight: '700', color: '#1e293b', marginBottom: 8 },\n  subtitulo: { fontSize: 16, color: '#64748b', marginBottom: 24 },\n  label: { fontSize: 16, fontWeight: '600', color: '#1e293b', marginBottom: 8 },\n  input: {\n    borderWidth: 1, borderColor: '#cbd5e1', borderRadius: 12,\n    padding: 14, fontSize: 16, color: '#1e293b', backgroundColor: '#fff',\n  },\n  botao: {\n    marginTop: 12, backgroundColor: '#2563eb', borderRadius: 12,\n    minHeight: 48, padding: 14, alignItems: 'center', justifyContent: 'center',\n  },\n  botaoOpaco: { opacity: 0.5 },\n  textoBotao: { color: '#fff', fontSize: 16, fontWeight: '700' },\n  resumo: { color: '#64748b', marginTop: 24, marginBottom: 12 },\n  lista: { flex: 1 },\n  conteudoLista: { paddingBottom: 24 },\n  vazio: { color: '#64748b', textAlign: 'center', paddingVertical: 24 },\n  erro: { color: '#b91c1c', marginBottom: 12 },\n  tarefa: {\n    flexDirection: 'row', alignItems: 'center', backgroundColor: '#fff',\n    padding: 12, borderRadius: 12, marginBottom: 10,\n    borderWidth: 1, borderColor: '#dbe4ef',\n  },\n  tarefaPrincipal: { flex: 1, flexDirection: 'row', alignItems: 'center', minHeight: 44 },\n  marcador: { fontSize: 23, color: '#2563eb', marginRight: 12 },\n  textoTarefa: { flex: 1, fontSize: 16, color: '#1e293b' },\n  concluida: { textDecorationLine: 'line-through', color: '#64748b' },\n  excluir: {\n    marginLeft: 10, padding: 10, minHeight: 44,\n    justifyContent: 'center', borderRadius: 8, backgroundColor: '#fee2e2',\n  },\n  textoExcluir: { color: '#b91c1c', fontWeight: '600' },\n});", "import { Pressable, Text, View } from 'react-native';\nimport styles from '../styles';\n\nexport default function Tarefa({ tarefa, onAlternar, onExcluir }) {\n  return (\n    <View style={styles.tarefa}>\n      <Pressable\n        style={styles.tarefaPrincipal}\n        onPress={() => onAlternar(tarefa.id)}\n        accessibilityRole=\"checkbox\"\n        accessibilityState={{ checked: tarefa.concluida }}\n        accessibilityLabel={tarefa.texto}\n      >\n        <Text style={styles.marcador} accessibilityElementsHidden>\n          {tarefa.concluida ? '☑' : '☐'}\n        <\/Text>\n        <Text style={[styles.textoTarefa, tarefa.concluida && styles.concluida]}>\n          {tarefa.texto}\n        <\/Text>\n      <\/Pressable>\n      <Pressable\n        style={styles.excluir}\n        onPress={() => onExcluir(tarefa.id)}\n        accessibilityRole=\"button\"\n        accessibilityLabel={`Excluir tarefa: ${tarefa.texto}`}\n      >\n        <Text style={styles.textoExcluir}>Excluir<\/Text>\n      <\/Pressable>\n    <\/View>\n  );\n}", "npx expo start", "npx expo start --go", "npx expo start --tunnel", "adb --version\nadb devices", "npx expo install react-dom react-native-web @expo/metro-runtime\nnpx expo start --web", "npx expo-doctor@latest\nnpx expo install --check", "npx expo install --fix\nnpx expo start --clear", "npx eas-cli@latest login\nnpx eas-cli@latest build:configure", "{\n  \"expo\": {\n    \"name\": \"Minhas Tarefas\",\n    \"slug\": \"minhas-tarefas-expo\",\n    \"android\": {\n      \"package\": \"br.com.exemplo.minhastarefas\"\n    }\n  }\n}", "{\n  \"build\": {\n    \"preview\": {\n      \"distribution\": \"internal\",\n      \"android\": {\n        \"buildType\": \"apk\"\n      }\n    }\n  }\n}", "npx eas-cli@latest build --platform android --profile preview", "npx expo install expo-dev-client", "{\n  \"developmentClient\": true,\n  \"distribution\": \"internal\"\n}", "npx eas-cli@latest build --platform android --profile development", "npx expo start --dev-client"];
+const status = document.getElementById('status');
+let timer;
+function notify(text) { status.textContent=text; clearTimeout(timer); timer=setTimeout(()=>status.textContent='',3500); }
+document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{
+ const text=examples[Number(button.dataset.copy)];
+ try {
+  if(navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+  else {
+   const area=document.createElement('textarea');area.value=text;
+   area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();
+   const ok=document.execCommand('copy');area.remove();if(!ok) throw new Error();
+  }
+  notify('Código copiado!');
+ } catch { notify('Selecione o código e use Ctrl+C para copiar.'); }
+}));
+document.querySelectorAll('[data-download]').forEach(button=>button.addEventListener('click',()=>{
+ const blob=new Blob([examples[Number(button.dataset.download)]],{type:'text/plain;charset=utf-8'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');
+ a.href=url;a.download=button.dataset.name;document.body.append(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+}));
+document.getElementById('print').addEventListener('click',()=>window.print());</script></body></html>
