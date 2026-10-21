@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Aula prática 3 é Agenda do campus com Expo e SQLite</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:#f1f5f9;color:#233047;font:17px/1.65 system-ui,sans-serif}a{color:#155bc7}header.hero{background:#122542;color:white;padding:58px max(24px,calc((100vw - 1060px)/2)) 48px}.eyebrow{text-transform:uppercase;font-size:12px;letter-spacing:2px;color:#8fd4ff;font-weight:700}h1{font-size:clamp(32px,5vw,52px);line-height:1.1;max-width:850px;margin:16px 0}header p{max-width:740px;color:#ccdaec}.pill{display:inline-block;border:1px solid #58708e;padding:5px 12px;border-radius:30px;font-size:13px;margin:4px}main{max-width:1060px;margin:auto;padding:28px 20px 65px}nav,section{background:white;padding:30px;border-radius:16px;margin-bottom:22px;border:1px solid #dce4ef}nav ul{columns:2;list-style:none;padding:0;margin:0}nav a{text-decoration:none;display:inline-block;padding:6px 0}h2{font-size:26px;line-height:1.3;margin:0 0 18px;color:#122542}h3{font-size:20px;margin-top:28px}p{margin:12px 0}li{margin:7px 0}code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:#eef3f9;padding:2px 5px;border-radius:4px}.code{margin:20px 0;border:1px solid #334860;border-radius:10px;overflow:hidden;background:#101e32;color:#e5eefb}.bar{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#20334e;padding:10px 14px;font-size:13px}.bar div{display:flex;gap:6px}button{background:#fff;color:#163354;border:1px solid #c7d4e6;border-radius:6px;padding:7px 11px;font:600 13px system-ui;cursor:pointer}button:hover{background:#dcecff}button:focus-visible,a:focus-visible{outline:3px solid #1d9fed;outline-offset:3px}pre{margin:0;padding:20px;overflow:auto;font:14px/1.6 ui-monospace,Consolas,monospace;tab-size:4}pre code{background:none;padding:0;color:inherit;font-size:inherit}.note{background:#eaf4ff;border-left:4px solid #237acb;padding:16px 20px;border-radius:4px;margin:20px 0}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}th,td{border-bottom:1px solid #dce4ef;padding:12px;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#edf3fa;color:#193d67}.checks{list-style:none;padding:0}.checks input{width:18px;height:18px;margin-right:10px;accent-color:#2563eb}footer{text-align:center;font-size:14px;color:#62738a}#status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#132641;color:white;border-radius:10px;padding:12px 20px;max-width:90vw}#status:empty{display:none}@media(max-width:650px){nav ul{columns:1}nav,section{padding:20px}main{padding:18px 12px}.bar{flex-wrap:wrap}table{font-size:13px}th,td{padding:8px}pre{font-size:12px}}@media print{body{background:white;font-size:11pt}header.hero{background:white;color:#122542;padding:20px}header p{color:#233047}.eyebrow{color:#233047}.pill{border-color:#aaa}main{padding:0;max-width:none}nav,.bar button,#status,.print{display:none}section{border:0;padding:15px 0;margin:0;border-radius:0}h2,h3{break-after:avoid}.code{background:white;color:#111;border-color:#bbb}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:9pt}.bar{background:#eee;color:#111}.note{background:#f4f4f4}table{font-size:10pt}a{color:#111}}
+.preview{max-width:360px;margin:24px auto;background:#eff6ff;padding:22px;border:7px solid #122542;border-radius:28px}.preview img{width:100%;display:block}.preview article{background:white;border:1px solid #dbe4ef;border-radius:16px;overflow:hidden}.preview .inside{padding:18px}.preview h3{margin:10px 0;font-size:23px}.preview p{font-size:15px}.preview .demo{display:block;width:100%;background:#1d4ed8;color:white;padding:14px;margin-top:16px}.preview small{color:#475569}.table-scroll{overflow-x:auto}.result{background:#ecfdf5;border-left:4px solid #059669;padding:14px 18px;margin:18px 0}.step{font-weight:700;color:#1d4ed8}details{margin:16px 0}summary{cursor:pointer;font-weight:700}.back{display:inline-block;margin-top:16px}@media print{.preview{break-inside:avoid}.code{break-inside:auto}nav{display:none}}</style></head>
+<body><header class="hero"><div class="eyebrow">Dispositivos Móveis é Aula prática 3</div><h1>Seu aplicativo agora tem memória.</h1><p>Manual completo para conectar React Native com Expo a um banco SQLite e construir uma agenda com cadastro, consulta, edição e exclusão.</p><span class="pill">Iniciante é 3 horas</span><span class="pill">JavaScript é Expo é SQLite</span><span class="pill">Professor Edilberto Firmino</span></header><main><nav id="sumario" aria-label="Sumário"><h2>Roteiro da aula</h2><ul><li><a href="#objetivo">01 é Da tela ao banco de dados</a></li><li><a href="#planejamento">02 é Planejamento do encontro e fala do professor</a></li><li><a href="#conceitos">03 é Entender SQLite, tabela e CRUD</a></li><li><a href="#ambiente">04 é Conferir ferramentas e versões</a></li><li><a href="#projeto">05 é Criar o projeto da prática 3</a></li><li><a href="#estrutura">06 é Organizar os arquivos</a></li><li><a href="#sql">07 é Criar a tabela e entender as consultas</a></li><li><a href="#banco">08 é Código completo de database.js</a></li><li><a href="#app">09 é Código completo de App.js</a></li><li><a href="#estilos">10 é Código completo de styles.js</a></li><li><a href="#explicacao">11 é Entender conexão, estado e fluxo dos dados</a></li><li><a href="#executar">12 é Executar no celular ou emulador</a></li><li><a href="#testes">13 é Roteiro de testes e prova de persistência</a></li><li><a href="#erros">14 é Diagnosticar dificuldades comuns</a></li><li><a href="#experimentos">15 é Experimentos guiados e desafio</a></li><li><a href="#atividade">16 é Atividade, perguntas e critérios de entrega</a></li><li><a href="#checklist">17 é Checklist antes de entregar</a></li><li><a href="#retomar">18 é Encerrar e retomar a prática</a></li><li><a href="#referencias">19 é Referências oficiais e notas do material</a></li></ul><p><button id="print" type="button">Imprimir / salvar como PDF</button></p><p>Leia em sequência. Copiar envia somente o código; Baixar arquivo fornece o mesmo conteúdo em .js.</p><a href="../aula-pratica-2/index.html">é Revisar a aula prática 2</a></nav><section id="objetivo"><h2>01 é Da tela ao banco de dados</h2><p>Na aula prática 2, um cartão apresentava um evento e respondia ao toque. Agora construiremos uma <strong>agenda de eventos do campus</strong>: o usuário informa nome e local, salva, consulta, edita e exclui registros. Ao reabrir o aplicativo no mesmo aparelho e projeto, os eventos continuam disponíveis.</p><p><strong>Objetivos:</strong> usar estado e formulário no React, compreender uma tabela, executar as quatro operações CRUD e demonstrar persistência com SQLite. Pré-requisitos: prática 2 ou familiaridade com App.js, componentes, props e estilos.</p><div class="preview" aria-label="Ilustração estática da tela final"><small>AULA PRÁTICA 3 é SQLITE</small><h3>Agenda do campus</h3><p>Eventos salvos neste aparelho.</p><article><div class="inside"><h3>Novo evento</h3><p>Nome: Oficina de aplicativos</p><p>Local: Laboratório 2</p><span class="demo">Salvar evento</span></div></article><h3>Eventos cadastrados (1)</h3><article><div class="inside"><small>EVENTO #1</small><h3>Oficina de aplicativos</h3><p>Local: Laboratório 2</p><p>Editar é Excluir</p></div></article></div><p>Esta prévia é uma ilustração HTML. O aplicativo real será executado no Expo Go ou emulador; esta página não grava eventos.</p><div class="note">SQLite é um banco local dentro do ambiente do aplicativo. Não exige servidor MySQL, conta, senha ou conexão com nuvem. Cada instalação possui seus próprios dados; os eventos não são compartilhados entre celulares. Após preparar o ambiente e abrir o app, as operações SQL são locais. O carregamento pelo Expo Go ainda depende da conexão com Metro.</div><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="planejamento"><h2>02 é Planejamento do encontro e fala do professor</h2><p><strong>Duração sugerida: 180 minutos.</strong> Trabalho individual ou em dupla. Prepare Node.js LTS, VS Code e Expo Go antes do encontro. O professor deve ensaiar os passos em um dispositivo compatível com o SDK da turma.</p><div class="table-scroll"><table><tr><th>Tempo</th><th>Condução do professor</th><th>Ação do estudante / evidência</th></tr><tr><td>0–15 min</td><td>Retomar o cartão da aula 2. Perguntar: “O alerta salvava alguma informação?”</td><td>Explicar a diferença entre interação e armazenamento.</td></tr><tr><td>15–35 min</td><td>Desenhar uma tabela de eventos e apresentar CRUD.</td><td>Identificar id, nome e local em duas linhas de exemplo.</td></tr><tr><td>35–55 min</td><td>Criar o projeto e instalar as bibliotecas.</td><td>Abrir a tela inicial no celular.</td></tr><tr><td>55–85 min</td><td>Ler database.js, relacionando cada função ao SQL.</td><td>Criar o arquivo e explicar o papel de ? e WHERE.</td></tr><tr><td>85–125 min</td><td>Montar formulário, estados e lista.</td><td>Executar o cadastro com os três arquivos completos.</td></tr><tr><td>125–150 min</td><td>Demonstrar edição, exclusão e reinício.</td><td>Registrar antes/depois e provar persistência.</td></tr><tr><td>150–170 min</td><td>Acompanhar personalização e desafio.</td><td>Personalizar o app e responder às perguntas.</td></tr><tr><td>170–180 min</td><td>Revisar critérios e recolher evidências.</td><td>Entregar arquivos e checklist.</td></tr></table></div><p><strong>Divisão em dois encontros:</strong> encerre o primeiro após preparar o banco e ler as funções SQL. No segundo, retome a estrutura, monte a tela e faça os testes. Se houver dificuldades de instalação, reserve preparação extra; não omita o teste de persistência.</p><p><strong>Fala sugerida:</strong> “A tela mostra uma cópia dos dados. O SQLite é quem os guarda. Depois de salvar, vamos consultar novamente a tabela para atualizar o que aparece.é</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="conceitos"><h2>03 é Entender SQLite, tabela e CRUD</h2><table><tr><th>Conceito</th><th>Nesta prática</th></tr><tr><td>Banco</td><td>Arquivo eventos-campus.db, criado pelo aplicativo.</td></tr><tr><td>Tabela</td><td>eventos: conjunto de registros com a mesma estrutura.</td></tr><tr><td>Linha / registro</td><td>Um evento cadastrado.</td></tr><tr><td>Colunas</td><td>id (inteiro), nome (texto) e local (texto).</td></tr><tr><td>Chave primária</td><td>id identifica uma linha, mesmo quando dois eventos têm o mesmo nome.</td></tr><tr><td>Estado React</td><td>Valores temporários na memória, como campos e lista exibida.</td></tr><tr><td>Persistência</td><td>Dados no SQLite sobrevivem ao fechamento normal do app.</td></tr></table><table><tr><th>CRUD</th><th>SQL</th><th>Botão / momento</th></tr><tr><td>Create: criar</td><td>INSERT</td><td>Salvar evento</td></tr><tr><td>Read: consultar</td><td>SELECT</td><td>Inicialização e Atualizar lista</td></tr><tr><td>Update: alterar</td><td>UPDATE é WHERE id = é</td><td>Editar e Salvar alterações</td></tr><tr><td>Delete: excluir</td><td>DELETE é WHERE id = é</td><td>Excluir e confirmar</td></tr></table><p>Não confunda SQLite (motor de banco) com SQL (linguagem de consultas) ou com MySQL (outro sistema de banco). Nesta aula não será necessário instalar SQLite separadamente no computador.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="ambiente"><h2>04 é Conferir ferramentas e versões</h2><ol><li>Instale Node.js LTS por <a href="https://nodejs.org/">nodejs.org</a> e VS Code por <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.</li><li>No celular Android ou iOS, prepare o Expo Go conforme <a href="https://expo.dev/go">expo.dev/go</a>.</li><li>Reabra o terminal após instalar Node.js e execute os comandos abaixo.</li></ol><div class="code"><div class="bar"><strong>Terminal é conferir ferramentas</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>node --version
+npm --version</code></pre></div><p>As duas linhas devem mostrar versões. Confira o requisito de Node.js do SDK usado no package.json, na <a href="https://docs.expo.dev/versions/latest/">documentação do Expo</a>. Não copie versões antigas só para igualar uma captura do professor. Use a documentação correspondente ao SDK instalado. O Expo Go também precisa ser compatível com esse SDK.</p><p>O computador e o celular devem conseguir se comunicar. Android Studio é opcional para quem usa celular físico. No Windows, o simulador iOS não está disponível; use um iPhone físico ou Android.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="projeto"><h2>05 é Criar o projeto da prática 3</h2><p><strong>Caminho recomendado:</strong> criar um projeto separado para preservar a aula 2. No VS Code, abra uma pasta de trabalho, use Terminal é Novo Terminal e execute uma linha por vez. O template <code>blank</code> usa JavaScript e App.js, sem Expo Router.</p><div class="code"><div class="bar"><strong>Terminal é projeto novo</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>npx create-expo-app@latest agenda-campus-sqlite --template blank
+cd agenda-campus-sqlite
+npx expo install expo-sqlite react-native-safe-area-context
+npx expo start --go</code></pre></div><ol><li>Aguarde cada comando terminar antes de executar o seguinte. Aceite a instalação de create-expo-app se solicitada.</li><li>Escaneie o QR code no Expo Go (Android) ou na câmera do iPhone e abra o projeto.</li><li>Confirme a tela inicial antes de substituir os arquivos. Pare Metro com Ctrl+C enquanto organiza o código, se desejar.</li></ol><div class="result">Resultado esperado: a tela inicial do template abre no aparelho. Você está dentro da pasta que contém package.json e App.js.</div><h3>Alternativa: continuar uma cópia da aula 2</h3><p>Faça uma cópia do seu projeto antes de alterar App.js e styles.js. Abra o terminal na cópia, execute <code>npm install</code> se necessário e instale as duas bibliotecas com o mesmo comando <code>npx expo install</code> acima. Substitua apenas App.js e styles.js e acrescente database.js. Os antigos componentes e imagens podem ficar sem uso.</p><div class="note">Se o projeto tem <code>app/</code> ou <code>src/app/</code> e <code>main: expo-router/entry</code>, ele usa Expo Router: criar App.js não muda sua rota inicial. Para esta sequência, use o projeto novo com template blank. Não altere o main de um projeto Router para tentar adaptar este manual.</div><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="estrutura"><h2>06 é Organizar os arquivos</h2><p>Na raiz do projeto, onde está package.json, crie database.js e substitua App.js pelo conteúdo desta aula. Crie ou substitua styles.js. Copie os três arquivos completos das próximas seções. O diretório exemplo deste material contém exatamente os mesmos conteúdos para download.</p><div class="code"><div class="bar"><strong>Estrutura esperada</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>agenda-campus-sqlite/
+  App.js
+  database.js
+  styles.js
+  index.js          (gerado pelo template; manter)
+  app.json          (gerado pelo template; manter)
+  package.json      (gerado pelo template; manter)
+  package-lock.json
+  assets/
+  node_modules/</code></pre></div><p><strong>Atenção:</strong> o index.html é o manual para abrir no navegador. O index.js é a entrada gerada do aplicativo. Não copie o HTML para dentro de App.js e não crie manualmente o arquivo .db. A pasta exemplo fornece os arquivos didáticos, não um projeto Expo completo; crie o projeto antes de copiá-los.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="sql"><h2>07 é Criar a tabela e entender as consultas</h2><p>Leia este SQL antes de copiar os arquivos. Estes exemplos explicam o que database.js executará; não são comandos para colar no PowerShell.</p><div class="code"><div class="bar"><strong>SQL é estrutura da tabela</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>CREATE TABLE IF NOT EXISTS eventos (
+  id INTEGER PRIMARY KEY NOT NULL,
+  nome TEXT NOT NULL CHECK(length(trim(nome)) &gt; 0),
+  local TEXT NOT NULL CHECK(length(trim(local)) &gt; 0)
+);</code></pre></div><ul><li><code>IF NOT EXISTS</code> permite iniciar o app novamente sem recriar uma tabela já existente.</li><li><code>INTEGER PRIMARY KEY</code> permite ao SQLite atribuir um identificador quando não informamos id no INSERT. Não presuma ids consecutivos ou nunca reutilizados.</li><li><code>NOT NULL</code> impede valor nulo; o <code>CHECK</code> também impede texto vazio ou só com espaços.</li><li>Nome e local são texto. Eventos de nomes iguais são permitidos e continuam tendo ids distintos.</li></ul><div class="code"><div class="bar"><strong>SQL é quatro operações (os é recebem os valores pelo JavaScript)</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>INSERT INTO eventos (nome, local) VALUES (ç, ç);
+SELECT id, nome, local FROM eventos ORDER BY id DESC;
+UPDATE eventos SET nome = ç, local = ç WHERE id = ç;
+DELETE FROM eventos WHERE id = ç;</code></pre></div><div class="note">A ordem dos parâmetros deve corresponder à ordem dos pontos de interrogação. Nunca monte SQL concatenando o texto digitado. O WHERE limita alteração e exclusão ao id selecionado; sem ele, todas as linhas seriam afetadas. Não experimente remover WHERE no banco com sua entrega.</div><p><strong>Pergunta é turma:</strong> se o nome contém apóstrofo, como “Feira d’Ideias”, o que acontece? Com parâmetros, esse texto é um valor, não uma parte do comando SQL.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="banco"><h2>08 é Código completo de database.js</h2><p>Este arquivo concentra a conexão e o SQL. Copie tudo para database.js na raiz do aplicativo. Ele não contém JSX nem componentes visuais.</p><div class="code"><div class="bar"><strong>database.js</strong><div><button type="button" class="copy">Copiar</button><a href="exemplo/database.js" download>Baixar arquivo</a></div></div><pre><code>import * as SQLite from &#x27;expo-sqlite&#x27;;
+
+let conexao;
+
+export async function abrirBanco() {
+  if (!conexao) {
+    conexao = SQLite.openDatabaseAsync(&#x27;eventos-campus.db&#x27;).catch((erro) =&gt; {
+      conexao = undefined;
+      throw erro;
+    });
+  }
+  return conexao;
+}
+
+export async function prepararBanco() {
+  const db = await abrirBanco();
+  // Somente SQL fixo aqui. Nunca interpolar o texto do formulário.
+  await db.execAsync(`
+    CREATE TABLE IF NOT EXISTS eventos (
+      id INTEGER PRIMARY KEY NOT NULL,
+      nome TEXT NOT NULL CHECK(length(trim(nome)) &gt; 0),
+      local TEXT NOT NULL CHECK(length(trim(local)) &gt; 0)
+    );
+  `);
+}
+
+export async function listarEventos() {
+  const db = await abrirBanco();
+  return db.getAllAsync(&#x27;SELECT id, nome, local FROM eventos ORDER BY id DESC;&#x27;);
+}
+
+export async function salvarEvento(id, nome, local) {
+  const db = await abrirBanco();
+  if (id === null) {
+    return db.runAsync(&#x27;INSERT INTO eventos (nome, local) VALUES (?, ?);&#x27;, nome, local);
+  }
+  return db.runAsync(&#x27;UPDATE eventos SET nome = ?, local = ? WHERE id = ?;&#x27;, nome, local, id);
+}
+
+export async function excluirEvento(id) {
+  const db = await abrirBanco();
+  return db.runAsync(&#x27;DELETE FROM eventos WHERE id = ?;&#x27;, id);
+}
+</code></pre></div><p>Salve o arquivo com Ctrl+S. Confira extensão .js e letras maiúsculas/minúsculas nos caminhos de importação.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="app"><h2>09 é Código completo de App.js</h2><p>Substitua todo o conteúdo de App.js. A tela usa formulário controlado, mensagens, lista com rolagem e confirmação de exclusão. O arquivo mantém a lógica visível para facilitar a leitura em aula.</p><div class="code"><div class="bar"><strong>App.js</strong><div><button type="button" class="copy">Copiar</button><a href="exemplo/App.js" download>Baixar arquivo</a></div></div><pre><code>import { useEffect, useRef, useState } from &#x27;react&#x27;;
+import { Alert, FlatList, Keyboard, KeyboardAvoidingView, Platform, Pressable, Text, TextInput, View } from &#x27;react-native&#x27;;
+import { SafeAreaProvider, SafeAreaView } from &#x27;react-native-safe-area-context&#x27;;
+import { prepararBanco, listarEventos, salvarEvento, excluirEvento } from &#x27;./database&#x27;;
+import styles from &#x27;./styles&#x27;;
+
+export default function App() {
+  const [eventos, setEventos] = useState([]);
+  const [nome, setNome] = useState(&#x27;&#x27;);
+  const [local, setLocal] = useState(&#x27;&#x27;);
+  const [editandoId, setEditandoId] = useState(null);
+  const [pronto, setPronto] = useState(false);
+  const [ocupado, setOcupado] = useState(false);
+  const [mensagem, setMensagem] = useState(&#x27;Abrindo banco...&#x27;);
+  // A trava impede dois toques de iniciar gravações simultâneas.
+  const trava = useRef(false);
+  const listaRef = useRef(null);
+
+  async function iniciar() {
+    if (trava.current) return;
+    trava.current = true;
+    setOcupado(true);
+    setPronto(false);
+    try {
+      await prepararBanco();
+      setEventos(await listarEventos());
+      setPronto(true);
+      setMensagem(&#x27;Banco pronto. Cadastre seu primeiro evento ou consulte a lista.&#x27;);
+    } catch (erro) {
+      console.error(erro);
+      setMensagem(&#x27;Não foi possível abrir o banco. Confira o terminal e tente novamente.&#x27;);
+    } finally {
+      trava.current = false;
+      setOcupado(false);
+    }
+  }
+
+  useEffect(() =&gt; { iniciar(); }, []);
+
+  function limparFormulario() {
+    setEditandoId(null);
+    setNome(&#x27;&#x27;);
+    setLocal(&#x27;&#x27;);
+  }
+
+  async function salvar() {
+    if (trava.current || !pronto) return;
+    if (!nome.trim() || !local.trim()) {
+      Alert.alert(&#x27;Campos obrigatórios&#x27;, &#x27;Preencha nome e local do evento.&#x27;);
+      return;
+    }
+    trava.current = true;
+    setOcupado(true);
+    let gravou = false;
+    try {
+      await salvarEvento(editandoId, nome.trim(), local.trim());
+      gravou = true;
+      limparFormulario();
+      Keyboard.dismiss();
+      setEventos(await listarEventos());
+      setMensagem(&#x27;Evento salvo no SQLite.&#x27;);
+    } catch (erro) {
+      console.error(erro);
+      setMensagem(gravou
+        ? &#x27;Gravado, mas a lista não atualizou. Use Atualizar lista antes de cadastrar novamente.&#x27;
+        : &#x27;Não foi possível salvar. Confira o terminal e tente novamente.&#x27;);
+    } finally {
+      trava.current = false;
+      setOcupado(false);
+    }
+  }
+
+  function editar(evento) {
+    if (trava.current) return;
+    setEditandoId(evento.id);
+    setNome(evento.nome);
+    setLocal(evento.local);
+    setMensagem(`Editando evento #${evento.id}. Altere os campos e salve.`);
+    listaRef.current?.scrollToOffset({ offset: 0, animated: true });
+  }
+
+  async function remover(id) {
+    if (trava.current || !pronto) return;
+    trava.current = true;
+    setOcupado(true);
+    let removeu = false;
+    try {
+      await excluirEvento(id);
+      removeu = true;
+      if (editandoId === id) limparFormulario();
+      setEventos(await listarEventos());
+      setMensagem(&#x27;Evento excluído.&#x27;);
+    } catch (erro) {
+      console.error(erro);
+      setMensagem(removeu
+        ? &#x27;Excluído, mas a lista não atualizou. Use Atualizar lista.&#x27;
+        : &#x27;Não foi possível excluir. Confira o terminal.&#x27;);
+    } finally {
+      trava.current = false;
+      setOcupado(false);
+    }
+  }
+
+  function confirmarExclusao(evento) {
+    if (trava.current) return;
+    Alert.alert(&#x27;Excluir evento?&#x27;, evento.nome, [
+      { text: &#x27;Cancelar&#x27;, style: &#x27;cancel&#x27; },
+      { text: &#x27;Excluir&#x27;, style: &#x27;destructive&#x27;, onPress: () =&gt; remover(evento.id) },
+    ]);
+  }
+
+  async function atualizar() {
+    if (trava.current || !pronto) return;
+    trava.current = true;
+    setOcupado(true);
+    try {
+      setEventos(await listarEventos());
+      setMensagem(&#x27;Lista consultada novamente no banco.&#x27;);
+    } catch (erro) {
+      console.error(erro);
+      setMensagem(&#x27;Falha ao consultar. Confira o terminal.&#x27;);
+    } finally {
+      trava.current = false;
+      setOcupado(false);
+    }
+  }
+
+  const bloqueado = ocupado || !pronto;
+  return (
+    &lt;SafeAreaProvider&gt;
+      &lt;SafeAreaView style={styles.tela}&gt;
+        &lt;KeyboardAvoidingView style={styles.tela} behavior={Platform.OS === &#x27;ios&#x27; ? &#x27;padding&#x27; : undefined}&gt;
+          &lt;FlatList
+            ref={listaRef}
+            data={eventos}
+            keyExtractor={(item) =&gt; String(item.id)}
+            contentContainerStyle={styles.conteudo}
+            keyboardShouldPersistTaps=&quot;handled&quot;
+            ListHeaderComponent={
+              &lt;View&gt;
+                &lt;Text style={styles.selo}&gt;AULA PRÁTICA 3 · SQLITE&lt;/Text&gt;
+                &lt;Text style={styles.titulo}&gt;Agenda do campus&lt;/Text&gt;
+                &lt;Text style={styles.texto}&gt;Eventos salvos neste aparelho.&lt;/Text&gt;
+                &lt;Text accessibilityLiveRegion=&quot;polite&quot; style={styles.mensagem}&gt;{mensagem}&lt;/Text&gt;
+                {!pronto &amp;&amp; !ocupado &amp;&amp; &lt;Pressable accessibilityRole=&quot;button&quot; style={styles.botao} onPress={iniciar}&gt;&lt;Text style={styles.botaoTexto}&gt;Tentar abrir banco&lt;/Text&gt;&lt;/Pressable&gt;}
+                &lt;View style={styles.cartao}&gt;
+                  &lt;Text style={styles.subtitulo}&gt;{editandoId === null ? &#x27;Novo evento&#x27; : `Editar evento #${editandoId}`}&lt;/Text&gt;
+                  &lt;Text style={styles.rotulo}&gt;Nome do evento&lt;/Text&gt;
+                  &lt;TextInput accessibilityLabel=&quot;Nome do evento&quot; style={styles.input} value={nome} onChangeText={setNome} editable={!bloqueado} maxLength={100} placeholder=&quot;Ex.: Oficina de aplicativos&quot; /&gt;
+                  &lt;Text style={styles.rotulo}&gt;Local&lt;/Text&gt;
+                  &lt;TextInput accessibilityLabel=&quot;Local do evento&quot; style={styles.input} value={local} onChangeText={setLocal} editable={!bloqueado} maxLength={100} placeholder=&quot;Ex.: Laboratório 2&quot; /&gt;
+                  &lt;Pressable accessibilityRole=&quot;button&quot; accessibilityState={{ disabled: bloqueado }} disabled={bloqueado} onPress={salvar} style={[styles.botao, bloqueado &amp;&amp; styles.desabilitado]}&gt;
+                    &lt;Text style={styles.botaoTexto}&gt;{ocupado ? &#x27;Aguarde...&#x27; : editandoId === null ? &#x27;Salvar evento&#x27; : &#x27;Salvar alterações&#x27;}&lt;/Text&gt;
+                  &lt;/Pressable&gt;
+                  {editandoId !== null &amp;&amp; &lt;Pressable accessibilityRole=&quot;button&quot; disabled={bloqueado} onPress={limparFormulario} style={styles.secundario}&gt;&lt;Text style={styles.link}&gt;Cancelar edição&lt;/Text&gt;&lt;/Pressable&gt;}
+                &lt;/View&gt;
+                &lt;Text style={styles.subtitulo}&gt;Eventos cadastrados ({eventos.length})&lt;/Text&gt;
+                &lt;Pressable accessibilityRole=&quot;button&quot; disabled={bloqueado} onPress={atualizar} style={styles.secundario}&gt;&lt;Text style={styles.link}&gt;Atualizar lista&lt;/Text&gt;&lt;/Pressable&gt;
+              &lt;/View&gt;
+            }
+            ListEmptyComponent={&lt;Text style={styles.texto}&gt;{pronto ? &#x27;Nenhum evento cadastrado.&#x27; : &#x27;Aguardando o banco.&#x27;}&lt;/Text&gt;}
+            renderItem={({ item }) =&gt; (
+              &lt;View style={styles.cartao}&gt;
+                &lt;Text style={styles.selo}&gt;EVENTO #{item.id}&lt;/Text&gt;
+                &lt;Text style={styles.subtitulo}&gt;{item.nome}&lt;/Text&gt;
+                &lt;Text style={styles.texto}&gt;Local: {item.local}&lt;/Text&gt;
+                &lt;View style={styles.acoes}&gt;
+                  &lt;Pressable accessibilityRole=&quot;button&quot; accessibilityLabel={`Editar ${item.nome}`} disabled={bloqueado} style={styles.secundario} onPress={() =&gt; editar(item)}&gt;&lt;Text style={styles.link}&gt;Editar&lt;/Text&gt;&lt;/Pressable&gt;
+                  &lt;Pressable accessibilityRole=&quot;button&quot; accessibilityLabel={`Excluir ${item.nome}`} disabled={bloqueado} style={styles.secundario} onPress={() =&gt; confirmarExclusao(item)}&gt;&lt;Text style={styles.excluir}&gt;Excluir&lt;/Text&gt;&lt;/Pressable&gt;
+                &lt;/View&gt;
+              &lt;/View&gt;
+            )}
+            ListFooterComponent={&lt;Text style={styles.rodape}&gt;INBEC · Sua turma / seus nomes aqui&lt;/Text&gt;}
+          /&gt;
+        &lt;/KeyboardAvoidingView&gt;
+      &lt;/SafeAreaView&gt;
+    &lt;/SafeAreaProvider&gt;
+  );
+}
+</code></pre></div><p>Salve o arquivo com Ctrl+S. Confira extensão .js e letras maiúsculas/minúsculas nos caminhos de importação.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="estilos"><h2>10 é Código completo de styles.js</h2><p>Copie para styles.js ao lado de App.js. Os nomes dos estilos correspondem aos usados pela tela. Os cartões crescem com o texto e a FlatList permite rolar até o final.</p><div class="code"><div class="bar"><strong>styles.js</strong><div><button type="button" class="copy">Copiar</button><a href="exemplo/styles.js" download>Baixar arquivo</a></div></div><pre><code>import { StyleSheet } from &#x27;react-native&#x27;;
+
+export default StyleSheet.create({
+  tela: { flex: 1, backgroundColor: &#x27;#f1f5f9&#x27; },
+  conteudo: { padding: 20, gap: 14, width: &#x27;100%&#x27;, maxWidth: 700, alignSelf: &#x27;center&#x27;, paddingBottom: 40 },
+  selo: { fontSize: 12, fontWeight: &#x27;700&#x27;, color: &#x27;#155bc7&#x27;, marginBottom: 8 },
+  titulo: { fontSize: 30, fontWeight: &#x27;800&#x27;, color: &#x27;#122542&#x27;, marginBottom: 8 },
+  subtitulo: { fontSize: 20, fontWeight: &#x27;700&#x27;, color: &#x27;#122542&#x27;, marginBottom: 10 },
+  texto: { fontSize: 16, lineHeight: 24, color: &#x27;#334155&#x27; },
+  mensagem: { fontSize: 15, lineHeight: 22, color: &#x27;#164e63&#x27;, backgroundColor: &#x27;#e0f2fe&#x27;, padding: 14, borderRadius: 10, marginVertical: 16 },
+  cartao: { backgroundColor: &#x27;#fff&#x27;, padding: 18, borderRadius: 14, borderWidth: 1, borderColor: &#x27;#dce4ef&#x27;, marginBottom: 12 },
+  rotulo: { fontSize: 16, fontWeight: &#x27;600&#x27;, color: &#x27;#233047&#x27;, marginBottom: 6 },
+  input: { borderWidth: 1, borderColor: &#x27;#64748b&#x27;, borderRadius: 8, padding: 12, color: &#x27;#122542&#x27;, backgroundColor: &#x27;#fff&#x27;, fontSize: 16, marginBottom: 16 },
+  botao: { backgroundColor: &#x27;#1d4ed8&#x27;, padding: 15, borderRadius: 8, alignItems: &#x27;center&#x27; },
+  botaoTexto: { color: &#x27;#fff&#x27;, fontSize: 16, fontWeight: &#x27;700&#x27; },
+  desabilitado: { opacity: 0.5 },
+  secundario: { padding: 12, minHeight: 48, justifyContent: &#x27;center&#x27; },
+  link: { color: &#x27;#155bc7&#x27;, fontSize: 16, fontWeight: &#x27;600&#x27; },
+  excluir: { color: &#x27;#b91c1c&#x27;, fontSize: 16, fontWeight: &#x27;600&#x27; },
+  acoes: { flexDirection: &#x27;row&#x27;, flexWrap: &#x27;wrap&#x27;, gap: 12, marginTop: 8 },
+  rodape: { color: &#x27;#475569&#x27;, fontSize: 13, textAlign: &#x27;center&#x27;, marginTop: 20 },
+});
+</code></pre></div><p>Salve o arquivo com Ctrl+S. Confira extensão .js e letras maiúsculas/minúsculas nos caminhos de importação.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="explicacao"><h2>11 é Entender conexão, estado e fluxo dos dados</h2><h3>1. Abrir não é criar uma tabela</h3><p><code>openDatabaseAsync</code> abre ou cria eventos-campus.db. A variável <code>conexao</code> guarda a promessa da conexão para reutilizá-la durante a execução. Se a abertura falhar, ela é limpa para permitir nova tentativa. <code>prepararBanco</code> cria a tabela antes da primeira consulta; abrir o arquivo sozinho não define suas colunas.</p><h3>2. Esperar o banco antes de habilitar o formulário</h3><p><code>useEffect</code> chama iniciar na montagem. A função aguarda prepararBanco e listarEventos. Só então <code>pronto</code> fica verdadeiro. Em falha, o usuário vê uma mensagem e o botão Tentar abrir banco. Não feche a conexão depois de cada consulta: o exemplo a reutiliza durante a sessão.</p><h3>3. Campos controlados e identificador da edição</h3><p><code>useState</code> guarda nome, local, eventos, editandoId e mensagens. Cada TextInput recebe value e onChangeText. O id nulo representa novo cadastro; ao editar, guardamos o id do registro. Cancelar edição limpa o formulário sem alterar o banco.</p><h3>4. Gravar, consultar e renderizar</h3><p>Toque em Salvar é validar com trim é aguardar INSERT ou UPDATE é limpar formulário é executar SELECT é setEventos é React atualiza a FlatList. Alterar apenas setEventos muda a tela, mas não grava dados no SQLite.</p><h3>5. Operações assíncronas e erros</h3><p><code>async/await</code> organiza a sequência de operações. try/catch mostra falhas e console.error deixa detalhes no terminal. finally libera a interface. <code>ocupado</code> desabilita os controles; <code>useRef</code> mantém uma trava imediata contra dois toques antes da próxima renderização. Se a gravação ocorrer e só a consulta falhar, a mensagem orienta atualizar a lista para não cadastrar de novo.</p><h3>6. Uma lista e uma identidade</h3><p>FlatList usa <code>String(item.id)</code> como chave. Não usamos o nome, que pode se repetir. Editar carrega os campos e rola ao formulário. Excluir abre Alert: Cancelar não modifica o banco e Excluir chama a função com o id selecionado. A lista usa um cabeçalho com formulário para manter a rolagem em uma única Área.</p><h3>7. O que fica para depois</h3><p>Este exemplo cria uma tabela inicial. Se mudar suas colunas, <code>CREATE TABLE IF NOT EXISTS</code> não atualiza a tabela existente. Evoluções reais exigem migrações versionadas, por exemplo com PRAGMA user_version e ALTER TABLE. Backup, sincronização, autenticação e criptografia não são implementados nesta aula.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="executar"><h2>12 é Executar no celular ou emulador</h2><ol><li>Salve os três arquivos. No terminal, confirme que está na pasta com package.json.</li><li>Se Metro já estiver aberto, pare com Ctrl+C após instalar bibliotecas e reinicie.</li></ol><div class="code"><div class="bar"><strong>Terminal é iniciar</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>npx expo start --go</code></pre></div><ol start="3"><li>Abra o QR code. Aguarde “Banco pronto” e confira os campos Nome e Local e o contador de eventos.</li><li>Cadastre “Oficina de aplicativos” em “Laboratório 2”. Toque uma vez em Salvar evento.</li><li>Confira a mensagem de sucesso, os campos limpos e um cartão com id, nome e local.</li><li>Cadastre “Mostra de projetos” em “Auditório”. O registro mais recente deve aparecer primeiro.</li></ol><div class="result">Resultado esperado: duas linhas no banco, dois cartões na lista e contador 2. O id é gerado pelo SQLite; não precisa ser 1 e 2 se você já fez outros cadastros.</div><h3>Emulador ou rede bloqueada</h3><p>Para Android virtual, configure e inicie um dispositivo no Android Studio antes de abrir Metro; pressione <code>a</code> no terminal do Expo. Consulte o <a href="https://docs.expo.dev/workflow/android-studio-emulator/">guia oficial</a>. Se a rede local impedir a conexão do celular, tente:</p><div class="code"><div class="bar"><strong>Terminal é alternativa de conexão</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>npx expo start --go --tunnel</code></pre></div><p>O túnel exige internet e pode pedir uma dependência adicional. Escaneie o novo QR code. Ele altera a conexão com o servidor de desenvolvimento, não transfere seu banco para a nuvem.</p><div class="note"><strong>Navegador:</strong> abrir este manual funciona offline. Executar o aplicativo com SQLite na web requer suporte a WebAssembly no Metro e cabeçalhos para SharedArrayBuffer, conforme <a href="https://docs.expo.dev/versions/latest/sdk/sqlite/#web-setup">configuração oficial</a>. Esta aula usa o caminho nativo e não configura a web. Não considere uma captura do manual uma evidência de execução do app.</div><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="testes"><h2>13 é Roteiro de testes e prova de persistência</h2><p>Execute na ordem e registre o resultado real. Use somente eventos fictícios.</p><div class="table-scroll"><table><tr><th>Teste</th><th>Ação</th><th>Resultado esperado</th></tr><tr><td>Obrigatórios</td><td>Tentar salvar campos vazios e depois só espaços.</td><td>Alerta; contador não muda.</td></tr><tr><td>Cadastro</td><td>Salvar os dois eventos da seção anterior.</td><td>Dois cartões com ids diferentes.</td></tr><tr><td>Texto com apóstrofo</td><td>Cadastrar Feira d'Ideias / Sala 3.</td><td>Texto aparece inteiro, sem erro SQL.</td></tr><tr><td>Nomes iguais</td><td>Cadastrar outro evento com o mesmo nome.</td><td>Outra linha com outro id.</td></tr><tr><td>Edição</td><td>Editar um cartão, mudar o local e salvar.</td><td>Mesmo id e contador; local atualizado.</td></tr><tr><td>Cancelar edição</td><td>Editar, digitar outro nome e cancelar.</td><td>Registro original continua intacto.</td></tr><tr><td>Cancelar exclusão</td><td>Excluir e escolher Cancelar no alerta.</td><td>Cartão continua presente.</td></tr><tr><td>Confirmar exclusão</td><td>Excluir apenas um cartão e confirmar.</td><td>Só o id selecionado desaparece.</td></tr><tr><td>Reconsultar</td><td>Tocar Atualizar lista.</td><td>Mesmo conteúdo persistido, sem duplicações.</td></tr><tr><td>Usabilidade</td><td>Adicionar vários eventos, rolar e editar o último; testar fonte ampliada e teclado.</td><td>Formulário alcançável e textos legíveis.</td></tr></table></div><h3>Teste principal: não vale apenas Fast Refresh</h3><ol><li>Deixe pelo menos dois eventos salvos e fotografe a lista com seus ids.</li><li>Deixe texto digitado no formulário sem salvar.</li><li>Feche completamente o Expo Go pelo seletor de aplicativos do aparelho.</li><li>Mantenha Metro em execução e reabra <strong>o mesmo projeto no mesmo aparelho</strong>, pelo histórico ou QR code.</li><li>Confira que os eventos salvos permanecem e o texto não salvo desapareceu. Consulte Atualizar lista e compare os ids.</li><li>Edite um registro e exclua outro; feche e reabra novamente. A alteração e a exclusão devem permanecer.</li></ol><p>Explique: os campos eram estado em memória; os registros confirmados estavam no arquivo SQLite. Recarregar o JavaScript pode ser um teste complementar, mas não substitui fechar e reabrir o app.</p><div class="note">Desinstalar o app, limpar os dados do Expo Go, trocar de aparelho ou trocar o ambiente/projeto pode remover os dados ou apontar para outro banco. Não use essas ações para testar persistência. Um banco local não é um backup.</div><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="erros"><h2>14 é Diagnosticar dificuldades comuns</h2><table><tr><th>Sintoma</th><th>Verificação e ação</th></tr><tr><td>npm ou node não reconhecido</td><td>Confira instalação e PATH do Node.js; feche e reabra VS Code.</td></tr><tr><td>Não encontra package.json</td><td>Você está na pasta errada. Use cd agenda-campus-sqlite, ou abra a pasta correta no VS Code.</td></tr><tr><td>Unable to resolve expo-sqlite ou safe-area-context</td><td>Execute o comando de instalação das duas bibliotecas na raiz do app e reinicie Metro.</td></tr><tr><td>Native module ausente / versão incompatível</td><td>Confira compatibilidade entre SDK, Expo Go e dependências. Use expo install, leia expo-doctor e atualize o ambiente compatível com orientação do professor.</td></tr><tr><td>no such table: eventos</td><td>Confira se prepararBanco foi aguardada antes de listar. Não copie somente o SELECT.</td></tr><tr><td>no such column</td><td>Confira nomes e a estrutura já existente. CREATE IF NOT EXISTS não aplica mudanças de colunas; planeje uma migração.</td></tr><tr><td>Texto não muda no campo</td><td>Confira value, onChangeText e se a mensagem indica banco pronto.</td></tr><tr><td>Editar cria outro evento</td><td>Confira editandoId: só null deve levar ao INSERT. Não limpe esse id antes de aguardar salvarEvento.</td></tr><tr><td>Dados desaparecem</td><td>Confira mesmo aparelho, projeto, nome do banco e ambiente. Verifique mensagem de sucesso antes de fechar.</td></tr><tr><td>Banco não abre</td><td>Leia o erro no terminal. Corrija a causa e use Tentar abrir banco. Não silencie o catch.</td></tr><tr><td>Tela antiga ou erro de importação</td><td>Confira App.js na raiz do template blank, maiúsculas e caminhos ./database e ./styles.</td></tr><tr><td>Erro wasm / SharedArrayBuffer no navegador</td><td>Use a execução nativa desta aula; a web depende de configuração adicional descrita na documentação.</td></tr></table><div class="code"><div class="bar"><strong>Terminal é diagnóstico, após parar Metro</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>npx expo-doctor@latest
+npx expo install --check</code></pre></div><p>Se houver suspeita de cache, reinicie com <code>npx expo start --go --clear</code>. Esse comando limpa o cache do empacotador; não é um comando para apagar registros SQLite. Corrija erros informados antes de instalar versões aleatórias. Registre a mensagem completa, arquivo e ação que resolveu.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="experimentos"><h2>15 é Experimentos guiados e desafio</h2><ol><li><strong>Ordenação:</strong> troque ORDER BY id DESC por ORDER BY nome COLLATE NOCASE ASC. Use Atualizar lista e compare. A ordem é definida pela consulta, não pela posição física das linhas.</li><li><strong>Persistência:</strong> troque só uma cor em styles.js e recarregue. Os dados devem continuar presentes.</li><li><strong>Validação:</strong> tente campos com espaços e explique por que trim é usado antes de salvar.</li><li><strong>Identidade:</strong> cadastre dois eventos de mesmo nome e edite apenas um. Compare os ids.</li><li><strong>Leitura:</strong> acrescente temporariamente console.log ao retorno da consulta e observe a lista de objetos no terminal. Retire o log ao finalizar.</li></ol><details><summary>Desafio opcional: pesquisar eventos pelo nome</summary><p>Crie uma função buscarEventos no database.js e use a consulta abaixo com <code>db.getAllAsync</code>, passando <code>'%' + termo.trim() + '%'</code> como parâmetro. Na tela, acrescente estado para termo e um TextInput de pesquisa. Execute a busca por botão, usando a mesma trava e o tratamento de erro de atualizar. Termo vazio deve listar todos.</p><div class="code"><div class="bar"><strong>SQL é busca parametrizada</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>SELECT id, nome, local FROM eventos WHERE nome LIKE ç ORDER BY id DESC;</code></pre></div><p>O parâmetro evita concatenar entrada ao SQL; os símbolos % e _ continuam tendo significado de curingas no LIKE. Teste uma pesquisa com e sem resultado. Este desafio não exige alterar a estrutura da tabela.</p></details><p>Adicionar data como coluna fica para uma aula de migrações: não basta inserir a propriedade no objeto React e esperar que o banco existente se altere sozinho.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="atividade"><h2>16 é Atividade, perguntas e critérios de entrega</h2><p><strong>Missão:</strong> personalizar a agenda para eventos da turma, preservar as quatro operações e demonstrar persistência. Inclua nomes da dupla no rodapé, altere título e cores mantendo legibilidade e cadastre pelo menos três eventos fictícios.</p><h3>Responda com suas palavras</h3><ol><li>Qual a diferença entre useState e SQLite? Qual deles mantém o texto não salvo após reiniciar?</li><li>O que abrirBanco faz e o que prepararBanco acrescenta?</li><li>Por que id é uma chave melhor do que o nome do evento?</li><li>Como o app escolhe entre INSERT e UPDATE?</li><li>Para que servem os parâmetros ? e a cláusula WHERE?</li><li>Por que a lista é consultada novamente depois de salvar?</li><li>Como você comprovou persistência e em qual aparelho?</li><li>O que aconteceria ao alterar as colunas só no CREATE IF NOT EXISTS?</li></ol><h3>Entregar</h3><ul><li>App.js, database.js, styles.js, package.json, package-lock.json e configurações/entrada geradas necessárias para reproduzir o projeto. Não envie node_modules.</li><li>Capturas ou vídeo curto: lista cadastrada; edição do mesmo id; exclusão; lista após fechar e reabrir. Identifique dispositivo e plataforma.</li><li>Respostas, checklist preenchido e relato de uma dificuldade resolvida ou pendência real.</li></ul><table><tr><th>Critério sugerido</th><th>Peso</th></tr><tr><td>Cadastro e consulta funcionais</td><td>25%</td></tr><tr><td>Edição por id e exclusão com confirmação</td><td>25%</td></tr><tr><td>Persistência demonstrada ao reabrir</td><td>25%</td></tr><tr><td>Validação, personalização e legibilidade</td><td>10%</td></tr><tr><td>Explicações e evidências reproduzíveis</td><td>15%</td></tr></table><p>O professor define prazo e nota final. Quem não conseguir executar no aparelho deve registrar a limitação e combinar a verificação com o professor; não declarar o teste nativo como realizado.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="checklist"><h2>17 é Checklist antes de entregar</h2><ul class="checks"><li><label><input type="checkbox"> Projeto blank abre no celular ou emulador compatível.</label></li><li><label><input type="checkbox"> Dependências instaladas com expo install.</label></li><li><label><input type="checkbox"> Três arquivos salvos nos caminhos corretos.</label></li><li><label><input type="checkbox"> Campos vazios e espaços rejeitados.</label></li><li><label><input type="checkbox"> Cadastro com apóstrofo funciona.</label></li><li><label><input type="checkbox"> Editar mantém o id e não duplica a linha.</label></li><li><label><input type="checkbox"> Cancelar edição e exclusão preserva os dados.</label></li><li><label><input type="checkbox"> Excluir confirmado remove apenas a linha selecionada.</label></li><li><label><input type="checkbox"> Eventos persistem após fechar e reabrir o mesmo projeto.</label></li><li><label><input type="checkbox"> Edição e exclusão também persistem após reabrir.</label></li><li><label><input type="checkbox"> Rolagem, teclado e fonte ampliada verificados.</label></li><li><label><input type="checkbox"> Entrega identifica nomes, SDK, aparelho e pendências.</label></li></ul><p>Os marcadores desta página servem para acompanhamento da leitura e reiniciam ao recarregar. Registre os resultados na sua entrega.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="retomar"><h2>18 é Encerrar e retomar a prática</h2><p>Salve os arquivos com Ctrl+S. Para encerrar Metro, pressione Ctrl+C no terminal. Isso não apaga o banco. Para retomar em outro momento:</p><div class="code"><div class="bar"><strong>Terminal é retomar a partir da pasta que contém o projeto</strong><div><button type="button" class="copy">Copiar</button></div></div><pre><code>cd agenda-campus-sqlite
+npx expo start --go</code></pre></div><p>Se já estiver dentro da pasta do app, execute só a segunda linha. Em outro computador, use npm install antes de iniciar, mantendo package-lock.json. Copiar o código não copia automaticamente o banco armazenado no aparelho. Reabra o mesmo projeto no mesmo celular para continuar os testes.</p><p>Na próxima aula, a turma pode evoluir para pesquisa, novas colunas com migração e relacionamento entre tabelas. Não é necessário gerar APK para esta entrega.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><section id="referencias"><h2>19 é Referências oficiais e notas do material</h2><p>Documentação consultada em 21/10/2026. A criação com latest pode escolher um SDK diferente do exemplo anterior. Verifique package.json e consulte a versão correspondente no seletor da documentação.</p><ul><li><a href="https://docs.expo.dev/versions/latest/sdk/sqlite/">Expo SQLite: instalação, abertura, parâmetros e CRUD</a></li><li><a href="https://docs.expo.dev/versions/latest/sdk/sqlite/#web-setup">Configuração adicional para SQLite na web</a></li><li><a href="https://docs.expo.dev/more/create-expo/">create-expo-app e templates</a></li><li><a href="https://docs.expo.dev/get-started/start-developing/">Abrir o aplicativo no dispositivo</a></li><li><a href="https://docs.expo.dev/develop/user-interface/safe-areas/">Áreas seguras no Expo</a></li><li><a href="https://react.dev/reference/react/useState">React: useState</a></li><li><a href="https://react.dev/reference/react/useEffect">React: useEffect</a></li><li><a href="https://reactnative.dev/docs/textinput">React Native: TextInput</a></li><li><a href="https://reactnative.dev/docs/flatlist">React Native: FlatList</a></li><li><a href="https://www.sqlite.org/lang_createtable.html">SQLite: CREATE TABLE</a></li></ul><p>Este manual e os arquivos de exemplo podem ser lidos offline. A preparação do projeto e as instalações exigem internet. A documentação do Expo informa suporte do expo-sqlite no Expo Go e persistência entre reinícios. O ensaio nativo no ambiente da turma é parte da preparação do professor.</p><a class="back" href="#sumario">Voltar ao roteiro é</a></section><footer>INBEC é Desenvolvimento para Dispositivos Móveis<br>Aula prática 3 é React Native, Expo e SQLite</footer></main><div id="status" role="status" aria-live="polite"></div><script>
+const status = document.getElementById('status');
+let timer;
+function notify(message) { status.textContent = message; clearTimeout(timer); timer = setTimeout(() => { status.textContent = ''; }, 3500); }
+document.querySelectorAll('.copy').forEach(button => button.addEventListener('click', async () => {
+  const text = button.closest('.code').querySelector('pre code').textContent;
+  try {
+    if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+    else {
+      const area = document.createElement('textarea'); area.value = text;
+      area.style.position = 'fixed'; area.style.opacity = '0'; document.body.append(area); area.select();
+      const ok = document.execCommand('copy'); area.remove(); if (!ok) throw new Error('copy');
+    }
+    notify('Código copiado!');
+  } catch { notify('Selecione o código e use Ctrl+C para copiar.'); }
+}));
+document.getElementById('print').addEventListener('click', () => window.print());
+</script></body></html>

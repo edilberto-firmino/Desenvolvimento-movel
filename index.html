@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Livro de aulas práticas | INBEC</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;color:#20324a;background:#f5f3ed;font:16px/1.6 system-ui,sans-serif}a{color:inherit}button{font:inherit;cursor:pointer}a:focus-visible,button:focus-visible{outline:3px solid #d8932e;outline-offset:4px}.layout{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:100vh}.sidebar{background:#132b43;color:#fff;padding:32px 24px;position:sticky;top:0;height:100vh;overflow:auto}.brand{color:#a6c6da;font-size:12px;letter-spacing:3px;font-weight:700}.sidebar h1{font:normal 34px/1.15 Georgia,serif;margin:22px 0 12px}.intro{font-size:14px;color:#c0d0df}.label{margin-top:36px;color:#a6c6da;font-size:12px;letter-spacing:2px;text-transform:uppercase}nav{display:grid;gap:10px}nav a{text-decoration:none;display:flex;gap:12px;align-items:flex-start;padding:14px 12px;border:1px solid #375169;border-radius:9px}nav a:hover{background:#223f59}nav a[aria-current="page"]{background:#f5f3ed;color:#132b43;border-color:#f5f3ed}.number{font:26px Georgia,serif;opacity:.65}nav strong{display:block;font-size:14px}nav small{display:block;font-size:12px;opacity:.8}.sidebar footer{margin-top:30px;font-size:12px;color:#a6c6da}.reader{min-width:0;display:flex;flex-direction:column;height:100vh}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px;background:#fff;border-bottom:1px solid #dddcd6}.toolbar p{margin:0;font-size:12px;color:#667789}.toolbar h2{margin:2px 0;font-size:17px}.direct{font-size:13px;text-decoration:none;border:1px solid #ccd5dc;padding:8px 12px;border-radius:6px;white-space:nowrap}iframe{display:block;width:100%;flex:1;min-height:0;border:0;background:white}.pagination{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 28px;border-top:1px solid #dddcd6;background:#fff}.pagination button{border:1px solid #ccd5dc;background:#fff;color:#20324a;border-radius:6px;padding:8px 14px}.pagination button:disabled{opacity:.4;cursor:default}#position{font-size:13px;color:#667789}.skip{position:absolute;left:16px;top:-100px;background:white;padding:10px;z-index:2}.skip:focus{top:12px}noscript p{padding:20px} @media(max-width:760px){.layout{display:block}.sidebar{position:static;height:auto;padding:22px}.sidebar h1{font-size:28px;margin:10px 0}.intro,.sidebar footer{display:none}.label{margin-top:18px}nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}nav a{padding:10px;display:block}.number{font-size:20px}nav small{display:none}nav strong{font-size:12px}.reader{height:90vh;height:90dvh;min-height:500px}.toolbar{padding:14px;flex-wrap:wrap}.pagination{padding:12px}.toolbar h2{font-size:15px}} 
+  </style>
+</head>
+<body>
+  <a class="skip" href="#leitura">Ir para a leitura</a>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">INBEC · DISPOSITIVOS MÓVEIS</div>
+      <h1>Um livro.<br>Muitas descobertas.</h1>
+      <p class="intro">Seu percurso de aprendizagem em desenvolvimento de aplicativos, uma prática de cada vez.</p>
+      <p class="label">Sumário das práticas</p>
+      <nav id="sumario" aria-label="Aulas práticas"></nav>
+      <noscript><p>Abra os materiais: <a href="aula-pratica-1/aula-reactnative/index.html">Aula 1</a>, <a href="aula-pratica-2/index.html">Aula 2</a> e <a href="aula-pratica-3/index.html">Aula 3</a>.</p></noscript>
+      <footer>React Native · Expo · JavaScript<br>Material de apoio às aulas práticas.</footer>
+    </aside>
+    <main class="reader" id="leitura" tabindex="-1">
+      <header class="toolbar">
+        <div aria-live="polite"><p id="chapter">Livro de aulas práticas</p><h2 id="title">Escolha uma aula no sumário</h2></div>
+        <a id="direct" class="direct" hidden target="_blank" rel="noopener">Abrir aula em nova aba ↗</a>
+      </header>
+      <iframe id="lesson" title="Conteúdo da aula prática"></iframe>
+      <div class="pagination" aria-label="Navegação entre aulas">
+        <button id="previous" type="button" disabled>← Anterior</button>
+        <span id="position" role="status"></span>
+        <button id="next" type="button" disabled>Próxima →</button>
+      </div>
+    </main>
+  </div>
+  <script>
+    // ADICIONAR UMA AULA: envie a pasta e acrescente um objeto nesta lista.
+    // O caminho é relativo à pasta INBEC. Use um id único para cada aula.
+    // Exemplo: { id: 'aula-4', titulo: 'Título da nova aula', tema: 'Assunto', arquivo: 'aula-pratica-4/index.html' },
+    const aulas = [
+      { id: 'aula-1', titulo: 'Seu primeiro aplicativo', tema: 'React Native e Expo', arquivo: 'aula-pratica-1/aula-reactnative/index.html' },
+      { id: 'aula-2', titulo: 'Eventos do Campus', tema: 'Componentes, estilos e interação', arquivo: 'aula-pratica-2/index.html' },
+      { id: 'aula-3', titulo: 'Agenda com SQLite', tema: 'Banco de dados e CRUD', arquivo: 'aula-pratica-3/index.html' },
+    ];
+    const sumario = document.getElementById('sumario');
+    const anterior = document.getElementById('previous');
+    const proxima = document.getElementById('next');
+    let atual = 0;
+    const links = aulas.map((aula, indice) => {
+      const link = document.createElement('a');
+      link.href = '#' + aula.id;
+      const numero = document.createElement('span');
+      numero.className = 'number';
+      numero.textContent = String(indice + 1).padStart(2, '0');
+      const texto = document.createElement('span');
+      const titulo = document.createElement('strong');
+      titulo.textContent = aula.titulo;
+      const tema = document.createElement('small');
+      tema.textContent = aula.tema;
+      texto.append(titulo, tema);
+      link.append(numero, texto);
+      sumario.append(link);
+      return link;
+    });
+    function abrirAula() {
+      const indice = aulas.findIndex(aula => '#' + aula.id === location.hash);
+      atual = indice < 0 ? 0 : indice;
+      const aula = aulas[atual];
+      document.getElementById('lesson').src = aula.arquivo;
+      document.getElementById('lesson').title = 'Aula prática ' + (atual + 1) + ': ' + aula.titulo;
+      document.getElementById('chapter').textContent = 'CAPÍTULO ' + String(atual + 1).padStart(2, '0');
+      document.getElementById('title').textContent = aula.titulo;
+      document.getElementById('direct').href = aula.arquivo;
+      document.getElementById('direct').hidden = false;
+      document.getElementById('position').textContent = (atual + 1) + ' de ' + aulas.length;
+      document.title = aula.titulo + ' | INBEC';
+      links.forEach((link, i) => {
+        if (i === atual) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+      anterior.disabled = atual === 0;
+      proxima.disabled = atual === aulas.length - 1;
+    }
+    anterior.addEventListener('click', () => { if (atual > 0) location.hash = aulas[atual - 1].id; });
+    proxima.addEventListener('click', () => { if (atual < aulas.length - 1) location.hash = aulas[atual + 1].id; });
+    window.addEventListener('hashchange', abrirAula);
+    abrirAula();
+  </script>
+</body>
+</html>

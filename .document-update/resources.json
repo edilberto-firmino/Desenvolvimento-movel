@@ -1,0 +1,404 @@
+[
+  {
+    "reading": [
+      {
+        "title": "Tutorial Using React Native and Expo",
+        "url": "https://docs.expo.dev/tutorial/introduction/",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "Core Components and APIs",
+        "url": "https://reactnative.dev/docs/components-and-apis",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "Create your first app",
+        "url": "https://docs.expo.dev/tutorial/create-your-first-app/",
+        "kind": "Vídeo e tutorial",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "Tutorial Using React Native and Expo",
+        "url": "https://docs.expo.dev/tutorial/introduction/",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "text": "Aprofunde a comparação entre aplicações nativas, multiplataforma e web progressivas por meio do tutorial oficial do Expo. Observe como um mesmo projeto pode atender Android, iOS e web e identifique as etapas de criação e execução. Relacione essas possibilidades às necessidades do aplicativo que pretende desenvolver, considerando acesso a recursos, manutenção e experiência do usuário."
+  },
+  {
+    "reading": [
+      {
+        "title": "Princípios para melhorar a acessibilidade do app",
+        "url": "https://developer.android.com/guide/topics/ui/accessibility/principles?hl=pt-br",
+        "kind": "Leitura",
+        "language": "português"
+      },
+      {
+        "title": "Thinking in React",
+        "url": "https://react.dev/learn/thinking-in-react",
+        "kind": "Tutorial interativo",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "Thinking in React",
+        "url": "https://react.dev/learn/thinking-in-react",
+        "kind": "Tutorial interativo",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "Princípios para melhorar a acessibilidade do app",
+        "url": "https://developer.android.com/guide/topics/ui/accessibility/principles?hl=pt-br",
+        "kind": "Leitura",
+        "language": "português"
+      }
+    ],
+    "text": "Amplie o estudo de usabilidade e acessibilidade consultando os princípios do Android Developers. Analise tamanho dos alvos de toque, contraste, descrição dos elementos e organização das informações. Aplique essas orientações ao protótipo do projeto e registre as melhorias propostas. Esses cuidados contribuem para a formação de profissionais capazes de desenvolver interfaces compreensíveis e utilizáveis por pessoas com diferentes necessidades."
+  },
+  {
+    "reading": [
+      {
+        "title": "Guia JavaScript",
+        "url": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide",
+        "kind": "Leitura",
+        "language": "português"
+      },
+      {
+        "title": "Core Components and APIs",
+        "url": "https://reactnative.dev/docs/components-and-apis",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "Build a screen",
+        "url": "https://docs.expo.dev/tutorial/build-a-screen/",
+        "kind": "Vídeo e tutorial",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "Guia JavaScript",
+        "url": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide",
+        "kind": "Leitura",
+        "language": "português"
+      },
+      {
+        "title": "Thinking in React",
+        "url": "https://react.dev/learn/thinking-in-react",
+        "kind": "Tutorial interativo",
+        "language": "inglês"
+      }
+    ],
+    "text": "Retome o guia de JavaScript para aprofundar funções, arrays e objetos e consulte o tutorial Thinking in React para compreender a decomposição de interfaces em componentes. Relacione a lógica de uma funcionalidade aos dados e elementos visuais necessários. Esse estudo ajuda a organizar responsabilidades, reduzir repetições e produzir código mais legível durante a implementação e a manutenção do aplicativo."
+  },
+  {
+    "reading": [
+      {
+        "title": "Style",
+        "url": "https://reactnative.dev/docs/style",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "useState",
+        "url": "https://react.dev/reference/react/useState",
+        "kind": "Tutorial interativo",
+        "language": "inglês"
+      },
+      {
+        "title": "Add navigation",
+        "url": "https://docs.expo.dev/tutorial/add-navigation/",
+        "kind": "Vídeo e tutorial",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "Add navigation",
+        "url": "https://docs.expo.dev/tutorial/add-navigation/",
+        "kind": "Vídeo e tutorial",
+        "language": "inglês"
+      },
+      {
+        "title": "Layout with Flexbox",
+        "url": "https://reactnative.dev/docs/flexbox",
+        "kind": "Tutorial com exemplos",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "Managing State",
+        "url": "https://react.dev/learn/managing-state",
+        "kind": "Tutorial interativo",
+        "language": "inglês"
+      },
+      {
+        "title": "Layout with Flexbox",
+        "url": "https://reactnative.dev/docs/flexbox",
+        "kind": "Tutorial com exemplos",
+        "language": "inglês"
+      }
+    ],
+    "text": "Explore os exemplos de gerenciamento de estado do React e de layout com Flexbox do React Native. Observe como as alterações de dados repercutem na interface e como os componentes se organizam em diferentes espaços. Compare os exemplos com os formulários e telas do seu aplicativo. O aprofundamento favorece decisões de implementação que tornam a navegação e a interação mais claras."
+  },
+  {
+    "reading": [
+      {
+        "title": "Testing",
+        "url": "https://reactnative.dev/docs/testing-overview",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "Managing State",
+        "url": "https://react.dev/learn/managing-state",
+        "kind": "Tutorial interativo",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "Build a screen",
+        "url": "https://docs.expo.dev/tutorial/build-a-screen/",
+        "kind": "Vídeo e tutorial",
+        "language": "inglês"
+      },
+      {
+        "title": "Add navigation",
+        "url": "https://docs.expo.dev/tutorial/add-navigation/",
+        "kind": "Vídeo e tutorial",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "Testing",
+        "url": "https://reactnative.dev/docs/testing-overview",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "text": "Aprofunde a revisão do aplicativo consultando o guia de testes do React Native. Diferencie verificações de componentes, integração e fluxos completos de uso. Selecione cenários relacionados às funcionalidades já implementadas, incluindo campos vazios, navegação e dados inválidos. Registre resultados e correções para acompanhar a evolução do projeto e desenvolver uma prática de verificação sistemática da qualidade do software."
+  },
+  {
+    "reading": [
+      {
+        "title": "AsyncStorage no Expo",
+        "url": "https://docs.expo.dev/versions/latest/sdk/async-storage/",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "AsyncStorage Usage",
+        "url": "https://github.com/react-native-async-storage/async-storage/blob/main/docs/api/usage.md",
+        "kind": "Tutorial com exemplos",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "AsyncStorage Usage",
+        "url": "https://github.com/react-native-async-storage/async-storage/blob/main/docs/api/usage.md",
+        "kind": "Tutorial com exemplos",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "SecureStore",
+        "url": "https://docs.expo.dev/versions/latest/sdk/securestore/",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "AsyncStorage no Expo",
+        "url": "https://docs.expo.dev/versions/latest/sdk/async-storage/",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "text": "Compare o armazenamento local de dados não sensíveis com o armazenamento seguro apresentado na documentação do Expo. Identifique quais informações do projeto podem ser persistidas e quais exigem proteção específica. Observe limitações de cada mecanismo e a necessidade de tratar falhas de leitura e gravação. Essa análise ajuda a selecionar soluções de persistência adequadas ao contexto de uso do aplicativo."
+  },
+  {
+    "reading": [
+      {
+        "title": "Usando Fetch",
+        "url": "https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch",
+        "kind": "Tutorial com exemplos",
+        "language": "português"
+      },
+      {
+        "title": "useEffect",
+        "url": "https://react.dev/reference/react/useEffect",
+        "kind": "Tutorial interativo",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "Networking",
+        "url": "https://reactnative.dev/docs/network",
+        "kind": "Tutorial com exemplos",
+        "language": "inglês"
+      },
+      {
+        "title": "Usando Fetch",
+        "url": "https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch",
+        "kind": "Tutorial com exemplos",
+        "language": "português"
+      }
+    ],
+    "more": [
+      {
+        "title": "useEffect",
+        "url": "https://react.dev/reference/react/useEffect",
+        "kind": "Tutorial interativo",
+        "language": "inglês"
+      },
+      {
+        "title": "Networking",
+        "url": "https://reactnative.dev/docs/network",
+        "kind": "Tutorial com exemplos",
+        "language": "inglês"
+      }
+    ],
+    "text": "Aprofunde o estudo da comunicação com serviços web por meio dos exemplos de Networking e useEffect. Observe o momento de execução das requisições, a atualização da interface e o tratamento de falhas. Relacione os exemplos aos estados de carregamento, sucesso e erro do seu aplicativo. Esse conhecimento apoia a construção de integrações compreensíveis e a identificação de limitações de conectividade."
+  },
+  {
+    "reading": [
+      {
+        "title": "ImagePicker",
+        "url": "https://docs.expo.dev/versions/latest/sdk/imagepicker/",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "Location",
+        "url": "https://docs.expo.dev/versions/latest/sdk/location/",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "Use an image picker",
+        "url": "https://docs.expo.dev/tutorial/image-picker/",
+        "kind": "Vídeo e tutorial",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "Princípios para melhorar a acessibilidade do app",
+        "url": "https://developer.android.com/guide/topics/ui/accessibility/principles?hl=pt-br",
+        "kind": "Leitura",
+        "language": "português"
+      },
+      {
+        "title": "ImagePicker",
+        "url": "https://docs.expo.dev/versions/latest/sdk/imagepicker/",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "text": "Consulte os exemplos do ImagePicker e os princípios de acessibilidade do Android para aperfeiçoar a interação com recursos do dispositivo. Verifique como o aplicativo informa a finalidade do acesso e responde ao cancelamento ou à indisponibilidade de um recurso. Relacione essas situações aos testes com usuários e registre melhorias que favoreçam autonomia, compreensão e respeito às escolhas de cada participante."
+  },
+  {
+    "reading": [
+      {
+        "title": "EAS Build",
+        "url": "https://docs.expo.dev/build/introduction/",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "Progressive Web Apps",
+        "url": "https://developer.mozilla.org/pt-BR/docs/Web/Progressive_web_apps",
+        "kind": "Leitura",
+        "language": "português"
+      },
+      {
+        "title": "Capacitor Documentation",
+        "url": "https://capacitorjs.com/docs",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "EAS Tutorial Introduction",
+        "url": "https://docs.expo.dev/tutorial/eas/introduction/",
+        "kind": "Tutorial digital",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "Progressive Web Apps",
+        "url": "https://developer.mozilla.org/pt-BR/docs/Web/Progressive_web_apps",
+        "kind": "Leitura",
+        "language": "português"
+      },
+      {
+        "title": "Capacitor Documentation",
+        "url": "https://capacitorjs.com/docs",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "text": "Amplie a comparação entre React Native, aplicações web progressivas e aplicações web integradas a recursos nativos com Capacitor. Consulte as referências indicadas e relacione cada abordagem às necessidades do projeto, à distribuição e à manutenção. Registre vantagens e limitações sem pressupor que uma única tecnologia atende a todos os contextos. Essa análise contribui para escolhas técnicas fundamentadas na atuação profissional."
+  },
+  {
+    "reading": [
+      {
+        "title": "Testing",
+        "url": "https://reactnative.dev/docs/testing-overview",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "EAS Build",
+        "url": "https://docs.expo.dev/build/introduction/",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "media": [
+      {
+        "title": "Create and share internal distribution build",
+        "url": "https://docs.expo.dev/tutorial/eas/internal-distribution-builds/",
+        "kind": "Vídeo e tutorial",
+        "language": "inglês"
+      }
+    ],
+    "more": [
+      {
+        "title": "Testing",
+        "url": "https://reactnative.dev/docs/testing-overview",
+        "kind": "Leitura",
+        "language": "inglês"
+      },
+      {
+        "title": "EAS Build",
+        "url": "https://docs.expo.dev/build/introduction/",
+        "kind": "Leitura",
+        "language": "inglês"
+      }
+    ],
+    "text": "Para dar continuidade aos estudos, revise as orientações de testes e de geração de versões de distribuição do Expo. Verifique se a documentação do projeto permite instalar, executar e demonstrar o aplicativo de maneira reproduzível. Organize as limitações conhecidas e as melhorias futuras. Esse registro facilita a manutenção, a colaboração com outras pessoas e a apresentação do trabalho em um portfólio profissional."
+  }
+]
